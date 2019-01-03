@@ -1,6 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+html,
 body {
-    color: black;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 0;
+  height: 100%;
+  width: 100%;
 }
 
+body {
+  color: black;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.global--body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.global--header {
+  background-color: antiquewhite;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr auto;
+  align-content: center;
+  align-items: center;
+}
