@@ -1,21 +1,12 @@
-const { generateKeyPairSync } = require('crypto');
+'use strict';
+const NodeRSA = require('node-rsa');
+const key = new NodeRSA();
+key.generateKeyPair();
 
-exports.getPrivateKey = function() {
-  const keys = generateKeyPairSync('rsa', {
-    modulusLength: 4096,
-    publicKeyEncoding: {
-      type: 'spki',
-      format: 'pem'
-    },
-    privateKeyEncoding: {
-      type: 'pkcs8',
-      format: 'pem',
-      cipher: 'aes-256-cbc',
-      passphrase: 'top secret'
-    }
-  });
+exports.getKey = function () {
+  return key.exportKey('pkcs1-private-pem');
+}
 
-  return keys.privateKey
-};
-
-
+exports.getPublicKey = function () {
+  return key.exportKey('pkcs1-public-pem');
+}

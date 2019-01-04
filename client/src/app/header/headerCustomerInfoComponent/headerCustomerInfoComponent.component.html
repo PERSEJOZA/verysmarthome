@@ -1,5 +1,5 @@
-<span *ngIf="!customer?.photo" class='photo' (click)="isShowLogin=!isShowLogin">&#9731;</span>
-<div *ngIf="isShowLogin" class='login'>
-  <span>sign in</span>
-  <span>register</span>
-</div>
+  <span *ngIf="!customer?.photo" class='photo' (click)="isShowLogin=!isShowLogin">&#9731;</span>
+  <div *ngIf="isShowLogin" class='login'>
+    <button class="global--button">login</button>
+    <button class="global--button">register</button>
+  </div>

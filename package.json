@@ -1,0 +1,20 @@
+{
+  "name": "smarthome",
+  "version": "1.0.0",
+  "description": "main environment",
+  "main": "index.js",
+  "scripts": {
+      "ng": "ng",
+      "start": "cd client && npm start && cd server && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PERSEJOZA/smarthome.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PERSEJOZA/smarthome/issues"
+  },
+  "homepage": "https://github.com/PERSEJOZA/smarthome#readme"
+}
