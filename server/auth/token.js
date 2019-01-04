@@ -1,3 +1,4 @@
+'use strict';
 const crypto = require('crypto');
 const keyGenerator = require('./keyGenerator');
 
@@ -6,11 +7,15 @@ exports.generateJWT = function(userNameFromUser, passwordFromUser) {
    return false
  }
 
-  JWTHeader = generateJWTHeader();
-  JWTPlayload = generatPlayload(userNameFromUser);
-  JWTSignature = generateSignature(JWTHeader, JWTPlayload);
+  let JWTHeader = generateJWTHeader();
+  let JWTPlayload = generatPlayload(userNameFromUser);
+  let JWTSignature = generateSignature(JWTHeader, JWTPlayload);
 
-  return JWTHeader + '.' + JWTPlayload + '.';
+  const verify = crypto.createVerify('SHA256');
+  verify.update(JWTHeader + '.' + JWTPlayload);
+  console.log(verify.verify(keyGenerator.getPublicKey(), JWTSignature, 'base64'));
+
+  return JWTHeader + '.' + JWTPlayload + '.' + JWTSignature;
 }
 
 function checkCreditenials(userNameFromUser, passwordFromUser) {
@@ -26,8 +31,8 @@ function checkCreditenials(userNameFromUser, passwordFromUser) {
 
 function generateJWTHeader() {
   const header = {
-    "alg": "RSA-SHA256",
-    "typ": "spki"
+    "alg": "SHA256",
+    "typ": "JWT"
   }
 
   return Buffer.from(JSON.stringify(header)).toString('base64');
@@ -42,8 +47,7 @@ function generatPlayload(userName) {
 }
 
 function generateSignature(JWTHeader, JWTPlayload) {
-  const sign = crypto.createSign('RSA-SHA256');
+  const sign = crypto.createSign('SHA256');
   sign.update(JWTHeader + '.' + JWTPlayload);
-  console.log(keyGenerator.getPrivateKey());
-  return sign.sign(crypto.privateDecrypt(keyGenerator.getPrivateKey()),'top secret','base64');
+  return sign.sign(keyGenerator.getKey(),'base64');
 }
