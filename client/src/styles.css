@@ -6,10 +6,7 @@ body {
   width: 100%;
 }
 
-body {
-  color: black;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
+html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 
 .global--body {
   display: grid;
@@ -18,7 +15,8 @@ body {
 }
 
 .global--header {
-  background-color: antiquewhite;
+  color: #fff !important;
+  background-color: #4d636f;
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: 1fr auto;
