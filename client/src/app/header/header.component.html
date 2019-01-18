@@ -2,5 +2,11 @@
   <div class="application-name">
     smartHome app
   </div>
-  <app-header-customer-info class="user-info"></app-header-customer-info>
+  <app-header-customer-info class="user-info" (click)="isShowLogin=!isShowLogin"></app-header-customer-info>
+  <div *ngIf="isShowLogin"  class='login'>
+    
+    <input #username placeholder="username"> <input #password type="password" placeholder="password"> 
+    <button class="global--button" (click)="login(username.value, password.value)">login</button>
+    <button class="global--button">register</button>
+  </div>
 </div>
