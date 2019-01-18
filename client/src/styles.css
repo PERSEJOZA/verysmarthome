@@ -17,11 +17,6 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 .global--header {
   color: #fff !important;
   background-color: #4d636f;
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: 1fr auto;
-  align-content: center;
-  align-items: center;
 }
 
 /* Set a style for all buttons */
