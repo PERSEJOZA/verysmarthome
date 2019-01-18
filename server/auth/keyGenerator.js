@@ -1,6 +1,5 @@
-'use strict';
-const NodeRSA = require('node-rsa');
-const key = new NodeRSA();
+var NodeRSA = require('node-rsa');
+var key = new NodeRSA();
 key.generateKeyPair();
 
 exports.getKey = function () {

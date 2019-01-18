@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./headerCustomerInfoComponent.component.css']
 })
 export class HeaderCustomerInfoComponent implements OnInit {
-  isShowLogin = false;
 
   constructor() { }
 

@@ -1,34 +1,33 @@
-const http = require('http');
-const auth = require('./auth/token.js');
+var http = require('http');
+var auth = require('./auth/token.js');
 
-const hostname = '127.0.0.1';
-const port = 3000;
+var hostname = '127.0.0.1';
+var port = 3000;
 
-const server = http.createServer((req, res) => {
+var server = http.createServer(function(req, res) {
   if (req.url==='/login') {
-    token = auth.generateJWT('admin', '00000')
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end(token);
+    token = auth.generateJWT('admin', '00000');
 
-    return;
-  }
+    if (token) {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'text/plain');
+      res.end(token);
 
-  if (true) {
-    res.statusCode = 401;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Wrong password or username\n');
+      return;
+    } else {
+      res.statusCode = 401;
+      res.setHeader('Content-Type', 'text/plain');
+      res.end('Wrong password or username\n');
 
-    return;
+      return;
+    }
   } else {
-    res.statusCode = 200;
+    res.statusCode = 404;
     res.setHeader('Content-Type', 'text/plain');
-    res.write('tada' + req);
-    res.end();
-
-    return;
+    res.end('Wrong URL\n');
   }
 });
 
-server.listen(port, hostname, () => {
-console.log(`Server running at http://${hostname}:${port}/`)});
+server.listen(port, hostname, function () {
+  console.log("Server running at http://" + hostname + ':' + port);
+});
