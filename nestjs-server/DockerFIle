@@ -1,0 +1,22 @@
+# Use node from official repo
+FROM node:11.7.0-alpine
+
+# set working directory
+RUN mkdir /app
+WORKDIR /app
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# This allows us to take advantage of cached Docker layers.
+COPY package.json .
+RUN npm install --loglevel error
+RUN npm cache clear --force
+
+# Copy source codenpm
+COPY . .
+
+# Expose API port to the outside
+EXPOSE 3000
+
+# Start application (ng setve)
+CMD ["npm", "start"]
