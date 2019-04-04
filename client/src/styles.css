@@ -6,21 +6,27 @@ body {
   width: 100%;
 }
 
-html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
-
-.global--body {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Open Sans", sans-serif
 }
 
-.global--header {
+.container-grid {
+  display: grid;
+}
+
+.global__header {
   color: #fff !important;
   background-color: #4d636f;
 }
 
 /* Set a style for all buttons */
-.global--button {
+.button {
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;
@@ -29,6 +35,6 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
   cursor: pointer;
 }
 
-.global--button:hover {
+.button:hover {
   opacity: 0.8;
 }
