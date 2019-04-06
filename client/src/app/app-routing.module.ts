@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FoodplannerComponent } from './foodplanner/foodplanner.component';
+import { FoodPlannerComponent } from './food-planner/food-planner.component';
+import { LoginComponent } from './login/login.component';
+import { AuthenticationGuard } from 'src/utilities/authentication.guard';
 
 const routes: Routes = [
-  { path: 'food-planner',
-    component: FoodplannerComponent },
-  { path: '',
-    redirectTo: '/food-planner',
-    pathMatch: 'full'
+  {
+    path: 'login',
+    component: LoginComponent
   },
-  { path: '**', component: FoodplannerComponent }
+  {
+    path: 'food-planner',
+    canActivate: [AuthenticationGuard],
+    component: FoodPlannerComponent
+  },
+  { path: '**', component: FoodPlannerComponent }
 ];
 
 @NgModule({
