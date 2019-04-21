@@ -5,3 +5,4 @@
     * npm package manager
 2. install git https://git-scm.com/downloads
 3. install vsCode
+4. Test
