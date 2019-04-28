@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FoodPlannerComponent } from './food-planner/food-planner.component';
 import { LoginComponent } from './login/login.component';
-import { AuthenticationGuard } from 'src/utilities/authentication.guard';
+import { AuthenticationGuard } from '../utilities/authentication.guard';
 
 const routes: Routes = [
   {
@@ -14,7 +14,9 @@ const routes: Routes = [
     canActivate: [AuthenticationGuard],
     component: FoodPlannerComponent
   },
-  { path: '**', component: FoodPlannerComponent }
+  { path: '**',
+    canActivate: [AuthenticationGuard],
+    component: FoodPlannerComponent }
 ];
 
 @NgModule({

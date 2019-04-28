@@ -16,12 +16,13 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(private _authservice: AuthService,  private _router: Router) { }
 
   ngOnInit() {
+    localStorage.clear();
     this.loginFrom = new FormGroup({
       username: new FormControl('admin', Validators.required),
       password: new FormControl('00000', Validators.required)
     });
   }
-  
+
   public login(): void {
     this.loginSubscription = this._authservice.login(this.loginFrom.value.username, this.loginFrom.value.password)
       .subscribe((response: any) => {
