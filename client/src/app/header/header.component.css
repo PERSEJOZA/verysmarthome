@@ -3,19 +3,19 @@
     grid-template-rows: auto 0px;
     align-items: center;
   }
-  
+
   .application-name {
     grid-column: 2;
   }
-  
+
   .user-info {
     grid-column: 3;
   }
-  
+
   .user-info__photo {
     font-size: 40px;
   }
-  
+
   .user-info__details {
     grid-row: 2;
     grid-column: 1 / -1;

@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthenticationGuard } from 'src/utilities/authentication.guard';
+
 import { FoodPlannerComponent } from './food-planner/food-planner.component';
 import { LoginComponent } from './login/login.component';
-import { AuthenticationGuard } from 'src/utilities/authentication.guard';
 
 const routes: Routes = [
 
@@ -15,7 +16,7 @@ const routes: Routes = [
     canActivate: [AuthenticationGuard],
     component: FoodPlannerComponent
   },
-  { path: '**', component: FoodPlannerComponent }
+  { path: '**', redirectTo: 'food-planner' }
 ];
 
 @NgModule({

@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+
 import { GenerateJwtService } from './generate-jwt/generate-jwt.service';
 import { VerifyJwtService } from './verify-jwt/verify-jwt.service';
 
@@ -8,18 +9,18 @@ export class AuthService {
   public constructor(private generateJWT: GenerateJwtService, private verifyJWT: VerifyJwtService) { }
 
   public async login(creditanials: any): Promise<any> {
-    if (!this.checkCreditenials(creditanials.username, creditanials.password)) {
-      return {'token':'booo'};
+    if (!this.checkCreditanials(creditanials.username, creditanials.password)) {
+      return { token: 'booo' };
     }
 
-    return await {'token': this.generateJWT.getJWT(creditanials.username, creditanials.password)};
+    return await { token: this.generateJWT.getJWT(creditanials.username, creditanials.password) };
   }
 
   public async validateUser(token: string) {
     return this.verifyJWT.verifyJWT(token)
   }
 
-  private checkCreditenials(usernameFromUser, passwordFromUser) {
+  private checkCreditanials(usernameFromUser: string, passwordFromUser: string) {
     const userName = 'admin';
     const password = '00000';
     if (usernameFromUser === userName && passwordFromUser === password) {

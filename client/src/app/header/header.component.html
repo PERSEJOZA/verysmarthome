@@ -5,7 +5,7 @@
   <div class="user-info">
     <span class='user-info__photo' (click)="isShowUserDetails=!isShowUserDetails">&#9731;</span>
   </div>
-  <div *ngIf="isShowUserDetails"  class='user-info__details'>
-    user details
+  <div *ngIf="isShowUserDetails" class='user-info__details'>
+    username: {{username}}
   </div>
 </div>

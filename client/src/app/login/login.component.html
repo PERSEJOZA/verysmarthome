@@ -1,3 +1,11 @@
-<p>
-  login works!
-</p>
+<form [formGroup]="loginFrom" (ngSubmit)="login()">
+  <label>
+    Username:
+    <input type="text" formControlName="username" autocomplete="username">
+  </label>
+  <label>
+    Password:
+    <input type="password" formControlName="currentPassword" autocomplete="current-password">
+  </label>
+  <button type="submit" [disabled]="!loginFrom.valid">Submit</button>
+</form>

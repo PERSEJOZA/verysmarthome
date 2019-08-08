@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   public isShowUserDetails = false;
+  public username: string;
 
   constructor() { }
 
-  ngOnInit() { }
-
+  ngOnInit() {
+    this.username = localStorage.username;
+    console.log(this.username);
+  }
 }
