@@ -1,26 +1,26 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AuthenticationGuard } from 'src/utilities/authentication.guard';
-
-import { FoodPlannerComponent } from './food-planner/food-planner.component';
-import { LoginComponent } from './login/login.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { LoginComponent } from "./shared-module/components/login/login.component";
+import { AuthenticationGuard } from "./shared-module/guards/authentication.guard";
 
 const routes: Routes = [
-
   {
-    path: 'login',
+    path: "login",
     component: LoginComponent
   },
   {
-    path: 'food-planner',
-    canActivate: [AuthenticationGuard],
-    component: FoodPlannerComponent
+    path: "food-planner",
+    loadChildren: () =>
+      import("./food-planner/food-planner.module").then(
+        mod => mod.FoodPlannerModule
+      ),
+    canLoad: [AuthenticationGuard]
   },
-  { path: '**', redirectTo: 'food-planner' }
+  { path: "**", redirectTo: "login" }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
