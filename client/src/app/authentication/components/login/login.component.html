@@ -1,0 +1,15 @@
+<div class="container">
+  <form class="login-form" [formGroup]="loginFrom" (ngSubmit)="login()">
+    <label>
+      Username:
+      <input type="text" formControlName="username" autocomplete="username" />
+    </label>
+    <label>
+      Password:
+      <input type="password" formControlName="currentPassword" autocomplete="current-password" />
+    </label>
+    <div>
+      <button type="submit" [disabled]="!loginFrom.valid">Submit</button>
+    </div>
+  </form>
+</div>
