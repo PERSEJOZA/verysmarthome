@@ -1,15 +1,16 @@
+import { throwError } from 'rxjs';
+
 import { Injectable } from '@nestjs/common';
 
 import { GenerateJwtService } from './generate-jwt/generate-jwt.service';
 import { VerifyJwtService } from './verify-jwt/verify-jwt.service';
-import { throwError } from 'rxjs';
 
 @Injectable()
 export class AuthService {
   public constructor(
     private generateJWT: GenerateJwtService,
     private verifyJWT: VerifyJwtService,
-  ) {}
+  ) { }
 
   public async login(credantials: any): Promise<any> {
     if (!this.checkCredantials(credantials.username, credantials.password)) {
