@@ -1,8 +1,8 @@
-import { Subscription } from 'rxjs';
-
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { UserInfoService } from 'src/app/services/user-info.service';
 
 import { AuthenticationService } from '../../services/authentication.service';
 
@@ -18,11 +18,13 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(
     private authenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private userInfoService: UserInfoService
   ) { }
 
   ngOnInit() {
     localStorage.clear();
+    this.userInfoService.clear();
     this.loginFrom = new FormGroup({
       username: new FormControl('admin', Validators.required),
       currentPassword: new FormControl('0000', Validators.required)
@@ -35,10 +37,9 @@ export class LoginComponent implements OnInit, OnDestroy {
       .subscribe((response: any) => {
         delete localStorage.token;
         localStorage.token = response.token;
-        console.log(localStorage.token);
         delete localStorage.name;
         localStorage.username = this.loginFrom.value.username;
-        console.log(localStorage.username);
+        this.userInfoService.setUserInfo();
         this.router.navigate(['/food-planner']);
       });
   }

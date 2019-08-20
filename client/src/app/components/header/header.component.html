@@ -3,9 +3,9 @@
     smartHome app
   </h4>
   <span class="user-info__photo" (click)="isShowUserDetails = !isShowUserDetails">&#9731;</span>
-  <div *ngIf="isShowUserDetails" class="user-info__details">
-    username: {{ username }}
-    <button *ngIf="username" (click)="logout()">
+  <div *ngIf="isShowUserDetails && userInfoService.username" class="user-info__details">
+    <div>username: {{ userInfoService.username }}</div>
+    <button (click)="logout()">
       logout
     </button>
   </div>
