@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "ng": "ng",
-    "start": "cd client && npm start && cd server && npm start"
+    "start": "cd client && ng serve && cd server && npm start"
   },
   "repository": {
     "type": "git",
