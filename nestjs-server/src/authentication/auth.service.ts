@@ -1,6 +1,5 @@
-import { throwError } from 'rxjs';
-
 import { Injectable } from '@nestjs/common';
+import { throwError } from 'rxjs';
 
 import { GenerateJwtService } from './generate-jwt/generate-jwt.service';
 import { VerifyJwtService } from './verify-jwt/verify-jwt.service';
@@ -12,15 +11,15 @@ export class AuthService {
     private verifyJWT: VerifyJwtService,
   ) { }
 
-  public async login(credantials: any): Promise<any> {
-    if (!this.checkCredantials(credantials.username, credantials.password)) {
+  public async login(credentials: any): Promise<any> {
+    if (!this.checkCredentials(credentials.username, credentials.password)) {
       throwError('Invalid username or password');
     }
 
     return await {
       token: this.generateJWT.getJWT(
-        credantials.username,
-        credantials.password,
+        credentials.username,
+        credentials.password,
       ),
     };
   }
@@ -29,7 +28,7 @@ export class AuthService {
     return this.verifyJWT.verifyJWT(token);
   }
 
-  private checkCredantials(usernameFromUser: string, passwordFromUser: string) {
+  private checkCredentials(usernameFromUser: string, passwordFromUser: string) {
     const userName = 'admin';
     const password = '0000';
     if (usernameFromUser === userName && passwordFromUser === password) {
