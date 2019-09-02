@@ -1,14 +1,15 @@
 import { Injectable } from '@nestjs/common';
-const NodeRSA = require('node-rsa');
+
+import NodeRSA = require('node-rsa');
 
 @Injectable()
-export class KeygeneratorService {
+export class KeyGenerationService {
   private rsaKey = new NodeRSA();
-  
+
   constructor() {
     this.rsaKey.generateKeyPair();
   }
-  
+
   public getKey() {
     return this.rsaKey.exportKey('pkcs1-private-pem');
   }
