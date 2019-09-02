@@ -25,6 +25,19 @@ export class AuthService {
     };
   }
 
+  public async register(credentials: any): Promise<any> {
+    if (!this.checkCredentials(credentials.username, credentials.password)) {
+      throwError('Invalid username or password');
+    }
+
+    return await {
+      token: this.generateJWT.getJWT(
+        credentials.username,
+        credentials.password,
+      ),
+    };
+  }
+
   public validateUser(token: string) {
     return this.verifyJWT.verifyJWT(token);
   }
