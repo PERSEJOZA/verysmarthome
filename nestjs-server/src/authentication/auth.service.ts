@@ -1,5 +1,6 @@
-import { Injectable } from '@nestjs/common';
 import { throwError } from 'rxjs';
+
+import { Injectable } from '@nestjs/common';
 
 import { GenerateJwtService } from './generate-jwt/generate-jwt.service';
 import { VerifyJwtService } from './verify-jwt/verify-jwt.service';
@@ -24,7 +25,7 @@ export class AuthService {
     };
   }
 
-  public async validateUser(token: string) {
+  public validateUser(token: string) {
     return this.verifyJWT.verifyJWT(token);
   }
 
