@@ -1,7 +1,5 @@
 <div class="container">
-  <h4>
-    smartHome app
-  </h4>
+  <ng-content></ng-content>
   <span class="user-info__photo" (click)="isShowUserDetails = !isShowUserDetails">&#9731;</span>
   <div *ngIf="isShowUserDetails && userInfoService.username" class="user-info__details">
     <div>username: {{ userInfoService.username }}</div>

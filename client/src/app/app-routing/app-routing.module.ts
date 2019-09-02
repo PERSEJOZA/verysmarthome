@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { DashboardComponent } from '../components/dashboard/dashboard.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: DashboardComponent
+  },
   {
     path: 'login',
     loadChildren: () =>
@@ -19,7 +24,7 @@ const routes: Routes = [
       ),
     canActivate: [AuthenticationGuard]
   },
-  { path: '**', redirectTo: 'login' }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

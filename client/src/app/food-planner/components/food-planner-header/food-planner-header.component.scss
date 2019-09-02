@@ -1,0 +1,19 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  grid-template-rows: 1fr;
+  grid-gap: 10px;
+  margin-right: 10px;
+  height: 100%;
+  div {
+    border-left: 2px;
+    &:hover {
+      background-color: bisque;
+    }
+  }
+
+  .active {
+    background-color: blue;
+  }
+}
+
