@@ -17,4 +17,11 @@ export class AuthenticationService {
       new User(username, password)
     );
   }
+
+  register(username: string, password: string): Observable<string> {
+    return this.http.post<string>(
+      `${this.baseURL}/register`,
+      new User(username, password)
+    );
+  }
 }

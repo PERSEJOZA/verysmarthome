@@ -1,24 +1,32 @@
+@import "./../../../../styles/variables";
+
 .container {
   display: grid;
-  padding: 0 10px 0 10px;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: 1fr 0px;
-  color: white;
+  grid-template-columns: $default-gap 1fr auto $default-gap;
+  grid-template-rows: auto 0px;
   align-items: center;
-  background-color: blueviolet;
-}
+  border-bottom: 1px solid;
 
-.user-info__photo {
-  font-size: 40px;
-}
+  &__content {
+    grid-column: 2;
+    grid-row: 1;
+  }
 
-.user-info__details {
-  z-index: 2;
-  grid-row: 2;
-  grid-column: 1 / -1;
-  padding: 10px;
-  background: blue;
-  justify-self: end;
-  align-self: start;
-  display: grid;
+  >.user-info__photo {
+    grid-column: 3;
+    grid-row: 1;
+    font-size: $default-gap*4;
+  }
+
+  >.user-info__details {
+    z-index: 2;
+    grid-row: 2;
+    grid-column: 1 / -1;
+    padding: $default-gap;
+    border: solid 1px;
+    background-color: azure;
+    justify-self: end;
+    align-self: start;
+    display: grid;
+  }
 }

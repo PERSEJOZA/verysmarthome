@@ -9,7 +9,8 @@
       <input type="password" formControlName="currentPassword" autocomplete="current-password" />
     </label>
     <div>
-      <button type="submit" [disabled]="!loginFrom.valid">Submit</button>
+      <button type="submit" [disabled]="!loginFrom.valid">Sign in</button>
+      <button (click)="register()" [disabled]="!loginFrom.valid">Register</button>
     </div>
   </form>
 </div>

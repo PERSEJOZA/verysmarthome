@@ -2,18 +2,19 @@
   display: grid;
   grid-template-columns: 1fr auto auto auto;
   grid-template-rows: 1fr;
-  grid-gap: 10px;
-  margin-right: 10px;
-  height: 100%;
-  div {
-    border-left: 2px;
+  grid-gap: 20px;
+  .link {
+    cursor: pointer;
     &:hover {
-      background-color: bisque;
+      border-bottom: 1px dashed;
+    }
+    &:focus {
+      outline: none;
     }
   }
 
   .active {
-    background-color: blue;
+    border-bottom: 1px solid red;
   }
 }
 

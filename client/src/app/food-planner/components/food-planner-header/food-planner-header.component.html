@@ -1,6 +1,8 @@
 <div class="container">
-  <div>Food Planner</div>
-  <div [routerLink]="['./cookbook']" routerLinkActive="active">Cookbook</div>
-  <div [routerLink]="['./planning']" routerLinkActive="active">Planning</div>
-  <div [routerLink]="['./shopping']" routerLinkActive="active">Buy food</div>
+  <div>
+    <span class="link" [routerLink]="['./']" routerLinkActive="active">Food Planner</span>
+  </div>
+  <span class="link" [routerLink]="['./cookbook']" routerLinkActive="active">Cookbook</span>
+  <span class="link" [routerLink]="['./planning']" routerLinkActive="active">Planning</span>
+  <span class="link" [routerLink]="['./shopping']" routerLinkActive="active">Buy food</span>
 </div>
