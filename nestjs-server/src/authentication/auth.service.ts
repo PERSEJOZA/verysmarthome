@@ -1,6 +1,6 @@
 import { throwError } from 'rxjs';
 
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 
 import { GenerateJwtService } from './generate-jwt/generate-jwt.service';
 import { VerifyJwtService } from './verify-jwt/verify-jwt.service';
@@ -14,7 +14,7 @@ export class AuthService {
 
   public async login(credentials: any): Promise<any> {
     if (!this.checkCredentials(credentials.username, credentials.password)) {
-      throwError('Invalid username or password');
+      throw new HttpException('Invalid username or password', HttpStatus.UNAUTHORIZED);
     }
 
     return await {
@@ -25,7 +25,7 @@ export class AuthService {
     };
   }
 
-  public async register(credentials: any): Promise<any> {
+  public async register(credentials: { username: string; password: string }): Promise<{ token: string }> {
     if (!this.checkCredentials(credentials.username, credentials.password)) {
       throwError('Invalid username or password');
     }
@@ -45,9 +45,15 @@ export class AuthService {
   private checkCredentials(usernameFromUser: string, passwordFromUser: string) {
     const userName = 'admin';
     const password = '0000';
+    console.log(passwordFromUser)
+
     if (usernameFromUser === userName && passwordFromUser === password) {
+      console.log('yes');
+
       return true;
     } else {
+      console.log('no');
+
       return false;
     }
   }

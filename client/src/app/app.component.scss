@@ -2,5 +2,11 @@
   height: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+  > .spinner {
+    justify-self: center
+  };
+  > .error {
+    justify-self: center;
+  }
 }

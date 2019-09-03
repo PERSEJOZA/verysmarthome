@@ -2,7 +2,7 @@
 
 .container {
   display: grid;
-  grid-template-columns: $default-gap 1fr auto $default-gap;
+  grid-template-columns: auto 1fr auto $default-gap;
   grid-template-rows: auto 0px;
   align-items: center;
   border-bottom: 1px solid;

@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public login(): void {
     this.loginSubscription = this.authenticationService
-      .login(this.loginFrom.value.username, this.loginFrom.value.password)
+      .login(this.loginFrom.value.username, this.loginFrom.value.currentPassword)
       .subscribe((response: any) => {
         delete localStorage.token;
         localStorage.token = response.token;
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public register(): void {
     this.registerSubscription = this.authenticationService
-      .register(this.loginFrom.value.username, this.loginFrom.value.password)
+      .register(this.loginFrom.value.username, this.loginFrom.value.currentPassword)
       .subscribe((response: any) => {
         delete localStorage.token;
         localStorage.token = response.token;
@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.loginSubscription.unsubscribe();
     }
     if (this.registerSubscription) {
-      this.loginSubscription.unsubscribe();
+      this.registerSubscription.unsubscribe();
     }
   }
 }

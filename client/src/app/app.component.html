@@ -1,3 +1,5 @@
 <div class="container">
   <router-outlet></router-outlet>
+  <app-spinner class="spinner" *ngIf="spinnerService.isLoading"></app-spinner>
+  <app-error-message class="error" *ngIf="errorMessageService.error"></app-error-message>
 </div>

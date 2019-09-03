@@ -1,6 +1,7 @@
+import { UserInfoService } from 'src/app/services/user-info.service';
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserInfoService } from 'src/app/services/user-info.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,10 @@ import { UserInfoService } from 'src/app/services/user-info.service';
 export class HeaderComponent implements OnInit {
   public isShowUserDetails = false;
 
-  constructor(private router: Router, public userInfoService: UserInfoService) { }
+  constructor(
+    private router: Router,
+    public userInfoService: UserInfoService
+  ) { }
 
   public logout(): void {
     this.router.navigate(['/login']);
