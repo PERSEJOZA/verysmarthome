@@ -45,15 +45,10 @@ export class AuthService {
   private checkCredentials(usernameFromUser: string, passwordFromUser: string) {
     const userName = 'admin';
     const password = '0000';
-    console.log(passwordFromUser)
 
     if (usernameFromUser === userName && passwordFromUser === password) {
-      console.log('yes');
-
       return true;
     } else {
-      console.log('no');
-
       return false;
     }
   }

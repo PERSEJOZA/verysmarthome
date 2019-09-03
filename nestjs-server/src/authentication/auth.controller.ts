@@ -12,7 +12,7 @@ export class AuthController {
   }
 
   @Post('register')
-  public async register(@Body() credantials: { username: string, password: string }): Promise<string> {
+  public async register(@Body() credantials: { username: string, password: string }): Promise<{ token: string }> {
     return await this.authService.register(credantials);
   }
 }
