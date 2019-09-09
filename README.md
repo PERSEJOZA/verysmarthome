@@ -1,4 +1,4 @@
-# Smart Homr
+# Smart Home
 
 ## Requirements
 
