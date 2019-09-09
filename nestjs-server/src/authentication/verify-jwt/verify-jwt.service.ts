@@ -6,7 +6,7 @@ import { KeyGenerationService } from '../keyGeneration/keyGeneration.service';
 export class VerifyJwtService {
   private crypto = require('crypto');
 
-  public constructor(private keyGenerator: KeyGenerationService) { };
+  public constructor(private keyGenerator: KeyGenerationService) {}
 
   public verifyJWT(token: any): boolean {
     const verify = this.crypto.createVerify('SHA256');

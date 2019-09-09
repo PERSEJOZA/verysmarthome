@@ -5,7 +5,20 @@
   "main": "index.js",
   "scripts": {
     "ng": "ng",
-    "start": "cd client && ng serve && cd server && npm start"
+    "start": "cd client && ng serve && cd server && npm start",
+    "prettierRepository": "prettier --write \"**/*.ts\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -17,5 +30,10 @@
     "url": "https://github.com/PERSEJOZA/smarthome/issues"
   },
   "homepage": "https://github.com/PERSEJOZA/smarthome#readme",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "husky": "^3.0.5",
+    "lint-staged": "^9.2.5",
+    "prettier": "1.18.2"
+  }
 }

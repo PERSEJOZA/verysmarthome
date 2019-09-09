@@ -1,11 +1,11 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 
-import { SpinnerService } from './spinner.service';
+import { SpinnerService } from "./spinner.service";
 
-describe('SpinnerService', () => {
+describe("SpinnerService", () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
-  it('should be created', () => {
+  it("should be created", () => {
     const service: SpinnerService = TestBed.get(SpinnerService);
     expect(service).toBeTruthy();
   });

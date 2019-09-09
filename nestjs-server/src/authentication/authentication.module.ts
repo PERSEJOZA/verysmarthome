@@ -8,6 +8,11 @@ import { VerifyJwtService } from './verify-jwt/verify-jwt.service';
 
 @Module({
   controllers: [AuthController],
-  providers: [AuthService, KeyGenerationService, GenerateJwtService, VerifyJwtService]
+  providers: [
+    AuthService,
+    KeyGenerationService,
+    GenerateJwtService,
+    VerifyJwtService,
+  ],
 })
-export class AuthenticationModule { }
+export class AuthenticationModule {}

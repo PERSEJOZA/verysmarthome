@@ -1,39 +1,38 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
-import { BuyFoodComponent } from './components/buy-food/buy-food.component';
-import { CookbookComponent } from './components/cookbook/cookbook.component';
-import { FoodCalendarComponent } from './components/food-calendar/food-calendar.component';
-import {
-    FoodPlannerDashboardComponent
-} from './components/food-planner-dashboard/food-planner-dashboard.component';
-import { FoodPlannerComponent } from './food-planner.component';
+import { BuyFoodComponent } from "./components/buy-food/buy-food.component";
+import { CookbookComponent } from "./components/cookbook/cookbook.component";
+import { FoodCalendarComponent } from "./components/food-calendar/food-calendar.component";
+import { FoodPlannerDashboardComponent } from "./components/food-planner-dashboard/food-planner-dashboard.component";
+import { FoodPlannerComponent } from "./food-planner.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: FoodPlannerComponent,
     children: [
       {
-        path: '',
+        path: "",
         component: FoodPlannerDashboardComponent
       },
       {
-        path: 'cookbook',
+        path: "cookbook",
         component: CookbookComponent
       },
       {
-        path: 'planning',
+        path: "planning",
         component: FoodCalendarComponent
       },
       {
-        path: 'shopping',
+        path: "shopping",
         component: BuyFoodComponent
-      }]
+      }
+    ]
   },
   {
-    path: '**',
-    redirectTo: ''
+    path: "**",
+    redirectTo: ""
   }
 ];
 
@@ -41,4 +40,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FoodPlannerRoutingModule { }
+export class FoodPlannerRoutingModule {}

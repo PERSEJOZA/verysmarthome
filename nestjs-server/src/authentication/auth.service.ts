@@ -10,11 +10,14 @@ export class AuthService {
   public constructor(
     private generateJWT: GenerateJwtService,
     private verifyJWT: VerifyJwtService,
-  ) { }
+  ) {}
 
   public async login(credentials: any): Promise<any> {
     if (!this.checkCredentials(credentials.username, credentials.password)) {
-      throw new HttpException('Invalid username or password', HttpStatus.UNAUTHORIZED);
+      throw new HttpException(
+        'Invalid username or password',
+        HttpStatus.UNAUTHORIZED,
+      );
     }
 
     return await {
@@ -25,7 +28,10 @@ export class AuthService {
     };
   }
 
-  public async register(credentials: { username: string; password: string }): Promise<{ token: string }> {
+  public async register(credentials: {
+    username: string;
+    password: string;
+  }): Promise<{ token: string }> {
     if (!this.checkCredentials(credentials.username, credentials.password)) {
       throwError('Invalid username or password');
     }

@@ -1,16 +1,21 @@
-import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { Observable } from "rxjs";
+import { finalize } from "rxjs/operators";
 
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import {
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest
+} from "@angular/common/http";
+import { Injectable } from "@angular/core";
 
-import { SpinnerService } from '../spinner.service';
+import { SpinnerService } from "../spinner.service";
 
 @Injectable()
 export class LoaderSpinnerInterceptor implements HttpInterceptor {
   private numberOfRequests = 0;
 
-  public constructor(private spinnerService: SpinnerService) { }
+  public constructor(private spinnerService: SpinnerService) {}
   public intercept(
     req: HttpRequest<any>,
     next: HttpHandler

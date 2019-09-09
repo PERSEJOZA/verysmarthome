@@ -6,7 +6,7 @@ import { KeyGenerationService } from '../keyGeneration/keyGeneration.service';
 export class GenerateJwtService {
   private crypto = require('crypto');
 
-  public constructor(private keyGenerator: KeyGenerationService) { }
+  public constructor(private keyGenerator: KeyGenerationService) {}
 
   public getJWT(userNameFromUser: string, passwordFromUser: string) {
     const JWTHeader = this.generateJWTHeader();

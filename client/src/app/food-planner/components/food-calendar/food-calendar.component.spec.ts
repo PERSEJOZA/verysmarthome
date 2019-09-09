@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { FoodCalendarComponent } from './food-calendar.component';
+import { FoodCalendarComponent } from "./food-calendar.component";
 
-describe('FoodCalendarComponent', () => {
+describe("FoodCalendarComponent", () => {
   let component: FoodCalendarComponent;
   let fixture: ComponentFixture<FoodCalendarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FoodCalendarComponent ]
-    })
-    .compileComponents();
+      declarations: [FoodCalendarComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('FoodCalendarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
