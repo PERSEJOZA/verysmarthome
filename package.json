@@ -6,7 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "cd client && ng serve && cd server && npm start",
-    "prettierRepository": "prettier --write \"**/*.ts\""
+    "prettierRepository": "prettier --write \"**/*.{ts,yaml,html,md,scss,json}\""
   },
   "husky": {
     "hooks": {
@@ -14,7 +14,7 @@
     }
   },
   "lint-staged": {
-    "*.js": [
+    "*.{ts, yaml, html, md, scss, json}": [
       "prettier --write",
       "eslint --fix",
       "git add"

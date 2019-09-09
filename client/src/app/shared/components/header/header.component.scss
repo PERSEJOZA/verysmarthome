@@ -12,13 +12,13 @@
     grid-row: 1;
   }
 
-  >.user-info__photo {
+  > .user-info__photo {
     grid-column: 3;
     grid-row: 1;
-    font-size: $default-gap*4;
+    font-size: $default-gap * 4;
   }
 
-  >.user-info__details {
+  > .user-info__details {
     z-index: 2;
     grid-row: 2;
     grid-column: 1 / -1;

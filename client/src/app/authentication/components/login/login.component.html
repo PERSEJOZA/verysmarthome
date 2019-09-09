@@ -7,13 +7,20 @@
       </label>
       <label>
         Password:
-        <input type="password" formControlName="currentPassword" autocomplete="current-password" />
+        <input
+          type="password"
+          formControlName="currentPassword"
+          autocomplete="current-password"
+        />
       </label>
-
     </form>
     <div>
-      <button type="submit" form="loginForm" [disabled]="!loginFrom.valid">Sign in</button>
-      <button (click)="register()" [disabled]="!loginFrom.valid">Register</button>
+      <button type="submit" form="loginForm" [disabled]="!loginFrom.valid">
+        Sign in
+      </button>
+      <button (click)="register()" [disabled]="!loginFrom.valid">
+        Register
+      </button>
     </div>
   </div>
 </div>
