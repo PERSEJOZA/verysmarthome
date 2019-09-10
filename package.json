@@ -16,7 +16,8 @@
   "lint-staged": {
     "*.{ts, yaml, html, md, scss, json}": [
       "prettier --write",
-      "eslint --fix",
+      "cd client tslint --fix",
+      "cd nestjs-server tslint --fix",
       "git add"
     ]
   },
