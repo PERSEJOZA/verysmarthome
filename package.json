@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "ng": "ng",
-    "start": "cd client && ng serve && cd server && npm start",
+    "start": "cd client && ng serve; cd server && npm start",
     "prettierRepository": "prettier --write \"**/*.{ts,yaml,html,md,scss,json}\""
   },
   "husky": {
@@ -14,10 +14,18 @@
     }
   },
   "lint-staged": {
-    "*.{ts, yaml, html, md, scss, json}": [
+    "client/**/*.ts": [
       "prettier --write",
-      "cd client tslint --fix",
-      "cd nestjs-server tslint --fix",
+      "npm run --prefix client lint",
+      "git add"
+    ],
+    "nestjs-server/**/*.ts": [
+      "prettier --write",
+      "npm run --prefix nestjs-server lint",
+      "git add"
+    ],
+    "*.{yaml, html, md, scss, json}": [
+      "prettier --write",
       "git add"
     ]
   },
