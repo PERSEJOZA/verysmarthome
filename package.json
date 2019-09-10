@@ -4,8 +4,6 @@
   "description": "main environment",
   "main": "index.js",
   "scripts": {
-    "ng": "ng",
-    "start": "cd client && ng serve; cd server && npm start",
     "prettierRepository": "prettier --write \"**/*.{ts,yaml,html,md,scss,json}\""
   },
   "husky": {
