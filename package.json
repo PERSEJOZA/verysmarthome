@@ -19,7 +19,7 @@
     ],
     "nestjs-server/**/*.ts": [
       "prettier --write",
-      "npm run --prefix nestjs-server lint --fix",
+      "npm run --prefix nestjs-server --fix",
       "git add"
     ],
     "*.{yaml, html, md, scss, json}": [

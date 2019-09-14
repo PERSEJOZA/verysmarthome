@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "nt lint",
+    "lint": "ng lint",
     "e2e": "ng e2e",
     "tslint-check": "tslint-config-prettier-check ./tslint.json"
   },
