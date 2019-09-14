@@ -1,14 +1,14 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FoodPlannerHeaderComponent } from "./food-planner-header.component";
+import { FoodPlannerHeaderComponent } from './food-planner-header.component';
 
-describe("FoodPlannerHeaderComponent", () => {
+describe('FoodPlannerHeaderComponent', () => {
   let component: FoodPlannerHeaderComponent;
   let fixture: ComponentFixture<FoodPlannerHeaderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [FoodPlannerHeaderComponent]
+      declarations: [FoodPlannerHeaderComponent],
     }).compileComponents();
   }));
 
@@ -18,7 +18,7 @@ describe("FoodPlannerHeaderComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

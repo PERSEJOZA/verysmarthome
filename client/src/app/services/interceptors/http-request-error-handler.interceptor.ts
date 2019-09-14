@@ -1,23 +1,23 @@
-import { Observable } from "rxjs";
-import { catchError, tap } from "rxjs/operators";
+import { Observable } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 import {
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
   HttpRequest,
-  HttpResponse
-} from "@angular/common/http";
-import { Injectable } from "@angular/core";
+  HttpResponse,
+} from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
-import { ErrorMessageService } from "../error-message.service";
+import { ErrorMessageService } from '../error-message.service';
 
 @Injectable()
 export class HttpRequestErrorHandlerInterceptor implements HttpInterceptor {
   public constructor(private errorMessage: ErrorMessageService) {}
   public intercept(
     request: HttpRequest<any>,
-    next: HttpHandler
+    next: HttpHandler,
   ): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((error: ErrorEvent) => {
@@ -30,7 +30,7 @@ export class HttpRequestErrorHandlerInterceptor implements HttpInterceptor {
         } else {
           this.errorMessage.setError(JSON.stringify(event));
         }
-      })
+      }),
     );
   }
 }

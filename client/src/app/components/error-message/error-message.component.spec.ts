@@ -1,14 +1,14 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ErrorMessageComponent } from "./error-message.component";
+import { ErrorMessageComponent } from './error-message.component';
 
-describe("ErrorMessageComponent", () => {
+describe('ErrorMessageComponent', () => {
   let component: ErrorMessageComponent;
   let fixture: ComponentFixture<ErrorMessageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ErrorMessageComponent]
+      declarations: [ErrorMessageComponent],
     }).compileComponents();
   }));
 
@@ -18,7 +18,7 @@ describe("ErrorMessageComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,17 +1,17 @@
-import { browser, logging } from "protractor";
+import { browser, logging } from 'protractor';
 
-import { AppPage } from "./app.po";
+import { AppPage } from './app.po';
 
-describe("workspace-project App", () => {
+describe('workspace-project App', () => {
   let page: AppPage;
 
   beforeEach(() => {
     page = new AppPage();
   });
 
-  it("should display welcome message", () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual("Welcome to client!");
+    expect(page.getTitleText()).toEqual('Welcome to client!');
   });
 
   afterEach(async () => {
@@ -22,8 +22,8 @@ describe("workspace-project App", () => {
       .get(logging.Type.BROWSER);
     expect(logs).not.toContain(
       jasmine.objectContaining({
-        level: logging.Level.SEVERE
-      } as logging.Entry)
+        level: logging.Level.SEVERE,
+      } as logging.Entry),
     );
   });
 });

@@ -14,12 +14,12 @@
   "lint-staged": {
     "client/**/*.ts": [
       "prettier --write",
-      "npm run --prefix client lint",
+      "npm run --prefix client lint --fix",
       "git add"
     ],
     "nestjs-server/**/*.ts": [
       "prettier --write",
-      "npm run --prefix nestjs-server lint",
+      "npm run --prefix nestjs-server lint --fix",
       "git add"
     ],
     "*.{yaml, html, md, scss, json}": [
