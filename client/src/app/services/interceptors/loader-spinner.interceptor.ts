@@ -1,5 +1,5 @@
-import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import {finalize} from 'rxjs/operators';
 
 import {
   HttpEvent,
@@ -7,9 +7,9 @@ import {
   HttpInterceptor,
   HttpRequest,
 } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-import { SpinnerService } from '../spinner.service';
+import {SpinnerService} from '../spinner.service';
 
 @Injectable()
 export class LoaderSpinnerInterceptor implements HttpInterceptor {

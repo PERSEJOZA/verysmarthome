@@ -12,13 +12,12 @@
     }
   },
   "lint-staged": {
-    "client/**/*.ts": [
-      "npm --prefix client run lint --fix",
+    "client/**/*": [
+      "prettier --write",
       "git add"
     ],
     "nestjs-server/**/*.ts": [
       "prettier --write",
-      "npm run --prefix nestjs-server --fix",
       "git add"
     ],
     "*.{yaml, html, md, scss, json}": [

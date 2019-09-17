@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import { DashboardComponent } from '../components/dashboard/dashboard.component';
-import { AuthenticationGuard } from './guards/authentication.guard';
+import {DashboardComponent} from '../components/dashboard/dashboard.component';
+import {AuthenticationGuard} from './guards/authentication.guard';
 
 const routes: Routes = [
   {
@@ -24,7 +24,7 @@ const routes: Routes = [
       ),
     canActivate: [AuthenticationGuard],
   },
-  { path: '**', redirectTo: '' },
+  {path: '**', redirectTo: ''},
 ];
 
 @NgModule({

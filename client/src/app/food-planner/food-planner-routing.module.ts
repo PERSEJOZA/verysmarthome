@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import { BuyFoodComponent } from './components/buy-food/buy-food.component';
-import { CookbookComponent } from './components/cookbook/cookbook.component';
-import { FoodCalendarComponent } from './components/food-calendar/food-calendar.component';
-import { FoodPlannerDashboardComponent } from './components/food-planner-dashboard/food-planner-dashboard.component';
-import { FoodPlannerComponent } from './food-planner.component';
+import {BuyFoodComponent} from './components/buy-food/buy-food.component';
+import {CookbookComponent} from './components/cookbook/cookbook.component';
+import {FoodCalendarComponent} from './components/food-calendar/food-calendar.component';
+import {FoodPlannerDashboardComponent} from './components/food-planner-dashboard/food-planner-dashboard.component';
+import {FoodPlannerComponent} from './food-planner.component';
 
 const routes: Routes = [
   {

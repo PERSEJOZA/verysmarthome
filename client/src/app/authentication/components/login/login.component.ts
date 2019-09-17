@@ -1,11 +1,11 @@
-import { Subscription } from 'rxjs';
-import { UserInfoService } from 'src/app/services/user-info.service';
+import {Subscription} from 'rxjs';
+import {UserInfoService} from 'src/app/services/user-info.service';
 
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
-import { AuthenticationService } from '../../services/authentication.service';
+import {AuthenticationService} from '../../services/authentication.service';
 
 @Component({
   selector: 'app-login',

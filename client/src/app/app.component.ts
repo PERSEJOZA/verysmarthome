@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
-import { ErrorMessageService } from './services/error-message.service';
-import { SpinnerService } from './services/spinner.service';
+import {ErrorMessageService} from './services/error-message.service';
+import {SpinnerService} from './services/spinner.service';
 
 @Component({
   selector: 'app-root',
