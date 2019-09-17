@@ -1,6 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import {Injectable} from '@nestjs/common';
 
-import { KeyGenerationService } from '../keyGeneration/keyGeneration.service';
+import {KeyGenerationService} from '../keyGeneration/keyGeneration.service';
 
 @Injectable()
 export class GenerateJwtService {
@@ -17,13 +17,13 @@ export class GenerateJwtService {
   }
 
   private generateJWTHeader() {
-    const header = { alg: 'SHA256', typ: 'JWT' };
+    const header = {alg: 'SHA256', typ: 'JWT'};
 
     return Buffer.from(JSON.stringify(header)).toString('base64');
   }
 
   private generatePlayload(userName: string) {
-    const playload = { name: userName };
+    const playload = {name: userName};
 
     return Buffer.from(JSON.stringify(playload)).toString('base64');
   }

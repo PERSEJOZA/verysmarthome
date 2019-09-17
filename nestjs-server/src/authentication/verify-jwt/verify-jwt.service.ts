@@ -1,6 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import {Injectable} from '@nestjs/common';
 
-import { KeyGenerationService } from '../keyGeneration/keyGeneration.service';
+import {KeyGenerationService} from '../keyGeneration/keyGeneration.service';
 
 @Injectable()
 export class VerifyJwtService {

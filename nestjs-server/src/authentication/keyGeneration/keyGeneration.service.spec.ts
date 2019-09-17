@@ -1,6 +1,6 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import {Test, TestingModule} from '@nestjs/testing';
 
-import { KeyGenerationService } from './keyGeneration.service';
+import {KeyGenerationService} from './keyGeneration.service';
 
 describe('keyGenerationService', () => {
   let service: KeyGenerationService;

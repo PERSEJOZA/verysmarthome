@@ -1,9 +1,9 @@
-import { throwError } from 'rxjs';
+import {throwError} from 'rxjs';
 
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import {HttpException, HttpStatus, Injectable} from '@nestjs/common';
 
-import { GenerateJwtService } from './generate-jwt/generate-jwt.service';
-import { VerifyJwtService } from './verify-jwt/verify-jwt.service';
+import {GenerateJwtService} from './generate-jwt/generate-jwt.service';
+import {VerifyJwtService} from './verify-jwt/verify-jwt.service';
 
 @Injectable()
 export class AuthService {
@@ -31,7 +31,7 @@ export class AuthService {
   public async register(credentials: {
     username: string;
     password: string;
-  }): Promise<{ token: string }> {
+  }): Promise<{token: string}> {
     if (!this.checkCredentials(credentials.username, credentials.password)) {
       throwError('Invalid username or password');
     }
