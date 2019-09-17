@@ -1,3 +1,6 @@
+# redactor configuration
+.vscode/
+
 # Logs
 logs
 *.log
