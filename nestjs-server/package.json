@@ -1,7 +1,7 @@
 {
-  "name": "nestjs-server-smarthome",
-  "version": "0.0.0",
-  "description": "nestjs server for the application",
+  "name": "nestjs-server",
+  "version": "0.0.1",
+  "description": "",
   "author": "PERSEJOZA",
   "license": "MIT",
   "scripts": {
@@ -40,6 +40,7 @@
     "tsc-watch": "2.2.1",
     "tsconfig-paths": "3.8.0",
     "tslint": "5.16.0",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "3.4.3"
   },
   "jest": {
