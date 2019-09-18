@@ -1,8 +1,8 @@
 {
-  "name": "pasd",
-  "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "name": "nestjs-server-smarthome",
+  "version": "0.0.0",
+  "description": "nestjs server for the application",
+  "author": "PERSEJOZA",
   "license": "MIT",
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.build.json",
