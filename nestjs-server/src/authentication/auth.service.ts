@@ -9,22 +9,19 @@ import {VerifyJwtService} from './verify-jwt/verify-jwt.service';
 export class AuthService {
   public constructor(
     private generateJWT: GenerateJwtService,
-    private verifyJWT: VerifyJwtService,
+    private verifyJWT: VerifyJwtService
   ) {}
 
   public async login(credentials: any): Promise<any> {
     if (!this.checkCredentials(credentials.username, credentials.password)) {
       throw new HttpException(
         'Invalid username or password',
-        HttpStatus.UNAUTHORIZED,
+        HttpStatus.UNAUTHORIZED
       );
     }
 
     return await {
-      token: this.generateJWT.getJWT(
-        credentials.username,
-        credentials.password,
-      ),
+      token: this.generateJWT.getJWT(credentials.username, credentials.password)
     };
   }
 
@@ -37,10 +34,7 @@ export class AuthService {
     }
 
     return await {
-      token: this.generateJWT.getJWT(
-        credentials.username,
-        credentials.password,
-      ),
+      token: this.generateJWT.getJWT(credentials.username, credentials.password)
     };
   }
 
