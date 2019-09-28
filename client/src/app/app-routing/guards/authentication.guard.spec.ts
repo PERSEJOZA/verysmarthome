@@ -1,11 +1,11 @@
-import {async, inject, TestBed} from '@angular/core/testing';
+import {inject, TestBed} from '@angular/core/testing';
 
 import {AuthenticationGuard} from './authentication.guard';
 
 describe('AuthenticationGuard', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AuthenticationGuard],
+      providers: [AuthenticationGuard]
     });
   });
 
@@ -13,6 +13,6 @@ describe('AuthenticationGuard', () => {
     [AuthenticationGuard],
     (guard: AuthenticationGuard) => {
       expect(guard).toBeTruthy();
-    },
+    }
   ));
 });

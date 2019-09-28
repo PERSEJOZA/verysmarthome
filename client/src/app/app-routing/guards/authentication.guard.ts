@@ -3,7 +3,7 @@ import {
   ActivatedRouteSnapshot,
   CanActivate,
   Router,
-  RouterStateSnapshot,
+  RouterStateSnapshot
 } from '@angular/router';
 
 @Injectable()
@@ -12,15 +12,16 @@ export class AuthenticationGuard implements CanActivate {
 
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot,
+    state: RouterStateSnapshot
   ): boolean {
+    console.log(next);
     if (localStorage.token) {
       return true;
     } else {
       this.router.navigate(['/login'], {
         queryParams: {
-          return: state.url,
-        },
+          return: state.url
+        }
       });
 
       return false;
