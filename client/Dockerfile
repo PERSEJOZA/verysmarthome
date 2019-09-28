@@ -5,7 +5,7 @@ FROM node:11.7.0-alpine
 RUN mkdir /etc/app
 WORKDIR /etc/app
 
-# Install app dependencies
+# Install app dependencie
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # This allows us to take advantage of cached Docker layers.
 COPY package.json package.json
@@ -14,6 +14,5 @@ RUN npm cache clean --force
 
 # Copy source codenpm
 COPY . .
-RUN npm run test
 
-ENTRYPOINT [ "npm", "run", "start:dev" ]
+ENTRYPOINT [ "npm", "run", "start" ]

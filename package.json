@@ -4,6 +4,7 @@
   "description": "main environment",
   "main": "index.js",
   "scripts": {
+    "start:dev": "docker-compose up -d",
     "prettierRepository": "prettier --write \"**/*.{ts,yaml,html,md,scss,json}\""
   },
   "husky": {
@@ -12,7 +13,7 @@
     }
   },
   "lint-staged": {
-    "client/**/*": [
+    "client/**/*.ts": [
       "prettier --write",
       "git add"
     ],

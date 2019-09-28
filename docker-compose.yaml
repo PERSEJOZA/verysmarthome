@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  client:
+    build: ./client
+    ports:
+      - '4200:4200'
+    volumes:
+      - ./client/src:/etc/app/src
+  server:
+    build: ./nestjs-server
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./nestjs-server/src:/etc/app/src
