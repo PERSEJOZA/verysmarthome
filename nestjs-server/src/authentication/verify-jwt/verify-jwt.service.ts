@@ -1,10 +1,11 @@
 import {Injectable} from '@nestjs/common';
 
 import {KeyGenerationService} from '../keyGeneration/keyGeneration.service';
+import * as Crypto from 'crypto';
 
 @Injectable()
 export class VerifyJwtService {
-  private crypto = require('crypto');
+  private crypto = Crypto;
 
   public constructor(private keyGenerator: KeyGenerationService) {}
 

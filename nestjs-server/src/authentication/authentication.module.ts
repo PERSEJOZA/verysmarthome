@@ -12,7 +12,7 @@ import {VerifyJwtService} from './verify-jwt/verify-jwt.service';
     AuthService,
     KeyGenerationService,
     GenerateJwtService,
-    VerifyJwtService,
-  ],
+    VerifyJwtService
+  ]
 })
 export class AuthenticationModule {}

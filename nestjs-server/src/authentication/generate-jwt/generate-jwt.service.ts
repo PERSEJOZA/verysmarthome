@@ -1,19 +1,19 @@
 import {Injectable} from '@nestjs/common';
 
 import {KeyGenerationService} from '../keyGeneration/keyGeneration.service';
-
+import * as Crypto from 'crypto';
 @Injectable()
 export class GenerateJwtService {
-  private crypto = require('crypto');
+  private crypto = Crypto;
 
   public constructor(private keyGenerator: KeyGenerationService) {}
 
   public getJWT(userNameFromUser: string, passwordFromUser: string) {
     const JWTHeader = this.generateJWTHeader();
-    const JWTPlayload = this.generatePlayload(userNameFromUser);
-    const JWTSignature = this.generateSignature(JWTHeader, JWTPlayload);
+    const JWTPayload = this.generatePayload(userNameFromUser);
+    const JWTSignature = this.generateSignature(JWTHeader, JWTPayload);
 
-    return JWTHeader + '.' + JWTPlayload + '.' + JWTSignature;
+    return JWTHeader + '.' + JWTPayload + '.' + JWTSignature;
   }
 
   private generateJWTHeader() {
@@ -22,15 +22,15 @@ export class GenerateJwtService {
     return Buffer.from(JSON.stringify(header)).toString('base64');
   }
 
-  private generatePlayload(userName: string) {
-    const playload = {name: userName};
+  private generatePayload(userName: string) {
+    const payload = {name: userName};
 
-    return Buffer.from(JSON.stringify(playload)).toString('base64');
+    return Buffer.from(JSON.stringify(payload)).toString('base64');
   }
 
-  private generateSignature(JWTHeader, JWTPlayload) {
+  private generateSignature(JWTHeader, JWTPayload) {
     const sign = this.crypto.createSign('SHA256');
-    sign.update(JWTHeader + '.' + JWTPlayload);
+    sign.update(JWTHeader + '.' + JWTPayload);
 
     return sign.sign(this.keyGenerator.getKey(), 'base64');
   }

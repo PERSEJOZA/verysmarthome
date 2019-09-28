@@ -1,6 +1,6 @@
 import {Injectable} from '@nestjs/common';
 
-import NodeRSA = require('node-rsa');
+import * as NodeRSA from 'node-rsa';
 
 @Injectable()
 export class KeyGenerationService {
