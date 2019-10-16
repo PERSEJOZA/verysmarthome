@@ -1,8 +1,11 @@
+@import './../../../../styles/variables';
+
 .container {
   display: grid;
   grid-template-columns: 1fr auto auto auto;
   grid-template-rows: 1fr;
   grid-gap: 20px;
+  padding: 0 $default-gap;
   .link {
     cursor: pointer;
     &:hover {

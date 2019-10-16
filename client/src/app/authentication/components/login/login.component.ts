@@ -1,5 +1,5 @@
 import {Subscription} from 'rxjs';
-import {UserInfoService} from 'src/app/services/user-info.service';
+import {UserInfoService} from 'src/app/shared/services/user-info.service';
 
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
@@ -11,7 +11,7 @@ import {AuthenticationService} from '../../services/authentication.service';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService]
 })
 export class LoginComponent implements OnInit, OnDestroy {
   loginFrom: FormGroup;
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router,
-    private userInfoService: UserInfoService,
+    private userInfoService: UserInfoService
   ) {}
 
   ngOnInit() {
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.userInfoService.clear();
     this.loginFrom = new FormGroup({
       username: new FormControl('admin', Validators.required),
-      currentPassword: new FormControl('0000', Validators.required),
+      currentPassword: new FormControl('0000', Validators.required)
     });
   }
 
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.loginSubscription = this.authenticationService
       .login(
         this.loginFrom.value.username,
-        this.loginFrom.value.currentPassword,
+        this.loginFrom.value.currentPassword
       )
       .subscribe((response: any) => {
         delete localStorage.token;
@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.registerSubscription = this.authenticationService
       .register(
         this.loginFrom.value.username,
-        this.loginFrom.value.currentPassword,
+        this.loginFrom.value.currentPassword
       )
       .subscribe((response: any) => {
         delete localStorage.token;

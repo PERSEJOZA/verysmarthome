@@ -9,9 +9,13 @@
     grid-column: 2;
     grid-row: 2;
     display: grid;
+    justify-items: end;
     grid-template-columns: 1fr;
-    grid-gap: $default-gap;
     grid-template-rows: max-content max-content max-content;
+    grid-gap: $default-gap;
     justify-items: center;
+    label {
+      display: block;
+    }
   }
 }

@@ -5,7 +5,7 @@ import {
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
-  HttpRequest,
+  HttpRequest
 } from '@angular/common/http';
 import {Injectable} from '@angular/core';
 
@@ -18,7 +18,7 @@ export class LoaderSpinnerInterceptor implements HttpInterceptor {
   public constructor(private spinnerService: SpinnerService) {}
   public intercept(
     req: HttpRequest<any>,
-    next: HttpHandler,
+    next: HttpHandler
   ): Observable<HttpEvent<any>> {
     this.numberOfRequests++;
     this.spinnerService.startLoading();
@@ -29,7 +29,7 @@ export class LoaderSpinnerInterceptor implements HttpInterceptor {
         if (this.numberOfRequests === 0) {
           this.spinnerService.stopLoading();
         }
-      }),
+      })
     );
   }
 }

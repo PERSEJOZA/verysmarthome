@@ -6,7 +6,7 @@ import {
   HttpHandler,
   HttpInterceptor,
   HttpRequest,
-  HttpResponse,
+  HttpResponse
 } from '@angular/common/http';
 import {Injectable} from '@angular/core';
 
@@ -17,7 +17,7 @@ export class HttpRequestErrorHandlerInterceptor implements HttpInterceptor {
   public constructor(private errorMessage: ErrorMessageService) {}
   public intercept(
     request: HttpRequest<any>,
-    next: HttpHandler,
+    next: HttpHandler
   ): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((error: ErrorEvent) => {
@@ -30,7 +30,7 @@ export class HttpRequestErrorHandlerInterceptor implements HttpInterceptor {
         } else {
           this.errorMessage.setError(JSON.stringify(event));
         }
-      }),
+      })
     );
   }
 }

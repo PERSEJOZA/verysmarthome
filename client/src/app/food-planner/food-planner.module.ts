@@ -8,6 +8,7 @@ import {FoodPlannerDashboardComponent} from './components/food-planner-dashboard
 import {FoodPlannerHeaderComponent} from './components/food-planner-header/food-planner-header.component';
 import {FoodPlannerRoutingModule} from './food-planner-routing.module';
 import {FoodPlannerComponent} from './food-planner.component';
+import {RecipeComponent} from './components/cookbook/recipe/recipe.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {FoodPlannerComponent} from './food-planner.component';
     CookbookComponent,
     FoodCalendarComponent,
     BuyFoodComponent,
+    RecipeComponent
   ],
-  imports: [FoodPlannerRoutingModule, SharedModule],
+  imports: [FoodPlannerRoutingModule, SharedModule]
 })
 export class FoodPlannerModule {}

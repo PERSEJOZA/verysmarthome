@@ -4,9 +4,9 @@ import {NgModule} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 
 import {SpinnerComponent} from '../components/spinner/spinner.component';
-import {httpRequestErrorHandlerProvider} from '../services/interceptors/http-request-error-handler.provider';
-import {loaderSpinnerProvider} from '../services/interceptors/loader-spinner.provider';
 import {HeaderComponent} from './components/header/header.component';
+import {httpRequestErrorHandlerProvider} from './services/interceptors/http-request-error-handler.provider';
+import {loaderSpinnerProvider} from './services/interceptors/loader-spinner.provider';
 
 @NgModule({
   declarations: [HeaderComponent, SpinnerComponent],
@@ -17,7 +17,7 @@ import {HeaderComponent} from './components/header/header.component';
     ReactiveFormsModule,
     HttpClientModule,
     HeaderComponent,
-    SpinnerComponent,
-  ],
+    SpinnerComponent
+  ]
 })
 export class SharedModule {}

@@ -5,5 +5,5 @@ import {HttpRequestErrorHandlerInterceptor} from './http-request-error-handler.i
 export const httpRequestErrorHandlerProvider = {
   provide: HTTP_INTERCEPTORS,
   useClass: HttpRequestErrorHandlerInterceptor,
-  multi: true,
+  multi: true
 };

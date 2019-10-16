@@ -1,18 +1,24 @@
 <div class="container">
   <div class="login-form">
     <form id="loginForm" [formGroup]="loginFrom" (ngSubmit)="login()">
-      <label>
+      <label for="username">
         Username:
-        <input type="text" formControlName="username" autocomplete="username" />
       </label>
-      <label>
+      <input
+        type="text"
+        formControlName="username"
+        id="username"
+        autocomplete="username"
+      />
+      <label for="password">
         Password:
-        <input
-          type="password"
-          formControlName="currentPassword"
-          autocomplete="current-password"
-        />
       </label>
+      <input
+        type="password"
+        id="password"
+        formControlName="currentPassword"
+        autocomplete="current-password"
+      />
     </form>
     <div>
       <button type="submit" form="loginForm" [disabled]="!loginFrom.valid">

@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="image"></div>
+  <div class="recipe-label">RECIPE</div>
+  <div class="tag"><span *ngFor="let tag of recipe.tags">tag</span></div>
+  <div class="recipe-name">
+    <h4>
+      {{ recipe.name }}
+    </h4>
+  </div>
+  <div class="description">{{ recipe.shortDescription }}</div>
+  <div class="reviews">{{ publicRank }}</div>
+  <div class="personal-rank">{{ recipe.personalRank }}</div>
+  <div class="edit">Edit</div>
+</div>
