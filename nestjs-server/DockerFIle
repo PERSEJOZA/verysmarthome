@@ -9,11 +9,13 @@ WORKDIR /etc/app
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # This allows us to take advantage of cached Docker layers.
 COPY package.json package.json
-RUN npm install --loglevel error
+COPY package-lock.json package-lock.json
+
+RUN npm ci --loglevel error
 RUN npm cache clean --force 
 
 # Copy source codenpm
 COPY . .
-RUN npm run test
+# RUN npm run test
 
 ENTRYPOINT [ "npm", "run", "start:dev" ]

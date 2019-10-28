@@ -1,14 +1,39 @@
 version: '3.7'
+
+networks:
+  smartHome:
+
 services:
+  couch-db:
+    container_name: couch-db
+    image: couchdb
+    restart: always
+    environment:
+      COUCHDB_USER: root
+      COUCHDB_PASSWORD: example
+    ports:
+      - 5984:5984
+    networks:
+      - smartHome
+
   client:
+    container_name: client
     build: ./client
     ports:
       - '4200:4200'
     volumes:
       - ./client/src:/etc/app/src
+    networks:
+      - smartHome
+
   server:
+    container_name: nestjs-server
     build: ./nestjs-server
     ports:
       - '3000:3000'
     volumes:
       - ./nestjs-server/src:/etc/app/src
+    depends_on:
+      - couch-db
+    networks:
+      - smartHome
