@@ -2,7 +2,6 @@ import {Injectable, Logger} from '@nestjs/common';
 import * as Nano from 'nano';
 
 import {ConfigService} from '../../config/config/config.service';
-import {Recipe} from '../../food-planner/models/recipe.model';
 
 @Injectable()
 export class CouchDBConnectorService {
@@ -21,7 +20,7 @@ export class CouchDBConnectorService {
 
   constructor(private configService: ConfigService) {}
 
-  public recipeDb: Nano.DocumentScope<Recipe>;
+  public recipeDb: Nano.DocumentScope<any>;
 
   public async connectToRecipeDb() {
     this.logger.debug('<' + this.connectToRecipeDb.name);

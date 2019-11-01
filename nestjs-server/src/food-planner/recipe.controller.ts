@@ -8,7 +8,7 @@ import {Recipe} from './models/recipe.model';
 
 @ApiUseTags('recipes')
 @ApiBearerAuth()
-@Controller('recipes')
+@Controller('api/recipes')
 export class RecipeController {
   constructor(private foodPlannerDbService: FoodPlannerDbService) {}
 
@@ -40,8 +40,10 @@ export class RecipeController {
     });
   }
 
-  //   @Get('')
-  //   async getAll(): Promise<RecipeDb[]> {
-  //     return await this.foodPlannerDbService.getAllRecipes();
-  //   }
+  @Get('')
+  async getAll(): Promise<RecipeDb[]> {
+    return await this.foodPlannerDbService.getAllRecipes().catch((error: Error) => {
+      throw new NotFoundException(this.getAll.name + 'ERROR', JSON.stringify(error));
+    });
+  }
 }

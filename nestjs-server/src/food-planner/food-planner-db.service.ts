@@ -1,5 +1,5 @@
 import {Injectable, Logger} from '@nestjs/common';
-import {DocumentDestroyResponse, DocumentInsertResponse} from 'nano';
+import {DocumentDestroyResponse, DocumentInsertResponse, MangoResponse} from 'nano';
 
 import {CouchDBConnectorService} from '../db/couch-db-connector/couch-db-connector.service';
 import {RecipeDb} from './models/recipe-db.model';
@@ -65,16 +65,17 @@ export class FoodPlannerDbService {
     return recipe;
   }
 
-  public async getAllRecipes(): Promise<RecipeDb> {
+  public async getAllRecipes(): Promise<RecipeDb[]> {
     this.logger.debug('<' + this.getAllRecipes.name);
+    const query = {selector: {}};
 
     // TODO: replace all to something more sweet
-    const recipe: RecipeDb = await this.couchConnection.recipeDb.get('all').catch((error: Error) => {
+    const recipes: MangoResponse<RecipeDb> = await this.couchConnection.recipeDb.find(query).catch((error: Error) => {
       this.logger.debug('=' + this.getAllRecipes.name + 'ERROR!!!', JSON.stringify(error));
       throw error;
     });
 
     this.logger.debug('<' + this.getAllRecipes.name);
-    return recipe;
+    return recipes.docs;
   }
 }
