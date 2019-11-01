@@ -1,12 +1,11 @@
-.container {
-  height: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto;
-  > .spinner {
-    justify-self: center;
-  }
-  > .error {
-    justify-self: center;
-  }
+.spinner {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.error {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
