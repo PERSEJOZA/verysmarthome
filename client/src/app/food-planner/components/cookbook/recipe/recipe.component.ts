@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Recipe} from 'src/app/food-planner/models/recipe';
+import {RecipeDb} from 'src/app/food-planner/models/recipe-db.model';
 
 @Component({
   selector: 'app-recipe',
@@ -7,7 +7,7 @@ import {Recipe} from 'src/app/food-planner/models/recipe';
   styleUrls: ['./recipe.component.scss']
 })
 export class RecipeComponent implements OnInit {
-  @Input() recipe: Recipe;
+  @Input() recipe: RecipeDb;
   public publicRank: number;
   constructor() {}
 
@@ -16,14 +16,14 @@ export class RecipeComponent implements OnInit {
   }
 
   private calculatePublicRank() {
-    let sum = 0;
-    let count = 0;
-    this.recipe.reviews.forEach(review => {
-      if (!!review.rank) {
-        sum = sum + review.rank;
-        count++;
-      }
-    });
+    const sum = 0;
+    const count = 0;
+    // this.recipe.reviews.forEach(review => {
+    //   // if (!!review.rank) {
+    //   //   sum = sum + review.rank;
+    //   //   count++;
+    //   // }
+    // });
 
     return sum / count;
   }

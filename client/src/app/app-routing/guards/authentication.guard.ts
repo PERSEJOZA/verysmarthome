@@ -1,20 +1,11 @@
 import {Injectable} from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  Router,
-  RouterStateSnapshot
-} from '@angular/router';
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 
 @Injectable()
 export class AuthenticationGuard implements CanActivate {
   constructor(private router: Router) {}
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): boolean {
-    console.log(next);
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (localStorage.token) {
       return true;
     } else {
@@ -23,6 +14,7 @@ export class AuthenticationGuard implements CanActivate {
           return: state.url
         }
       });
+      console.log(next);
 
       return false;
     }

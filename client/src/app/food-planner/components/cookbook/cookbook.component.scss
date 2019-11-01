@@ -1,7 +1,9 @@
 @import '../../../../styles/variables';
 
 .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: $default-gap;
+  text-align: center;
+  > * {
+    margin: $default-gap;
+    display: inline-block;
+  }
 }

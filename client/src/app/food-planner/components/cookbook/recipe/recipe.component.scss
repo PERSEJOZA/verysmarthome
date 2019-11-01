@@ -1,6 +1,10 @@
 @import '../../../../../styles/variables';
 
 .container {
+  border: 1px solid $border-color;
+  border-radius: $default-gap/2;
+  overflow: hidden;
+  max-width: 300px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 4fr 1fr max-content max-content 1fr;
@@ -38,10 +42,10 @@
     grid-area: personal-rank;
     background-color: gray;
   }
-  .edit {
-    grid-column: -2/-1;
-    grid-row: 1;
-    background-color: aqua;
-    align-self: start;
+
+  &:hover {
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px #ccc;
   }
 }

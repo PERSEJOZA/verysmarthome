@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Recipe} from '../../models/recipe';
+import {ActivatedRoute} from '@angular/router';
+
+import {RecipeDb} from '../../models/recipe-db.model';
 
 @Component({
   selector: 'app-cookbook',
@@ -7,74 +9,13 @@ import {Recipe} from '../../models/recipe';
   styleUrls: ['./cookbook.component.scss']
 })
 export class CookbookComponent implements OnInit {
-  constructor() {}
+  public recipes: RecipeDb[];
 
-  public recipes: Recipe[] = [
-    {
-      id: 'id1',
-      image: 'geen',
-      name: 'pizza Mozarella',
-      shortDescription: 'very nice pizza',
-      tags: ['fastfood', 'home'],
-      reviews: [
-        {
-          id: 'string',
-          reviewerUserName: 'Mikhail',
-          message: 'I cooked it once',
-          rank: 66
-        }
-      ],
-      personalRank: 89
-    },
-    {
-      id: 'id1',
-      image: 'geen',
-      name: 'pizza Mozarella',
-      shortDescription: 'very nice pizza',
-      tags: ['fastfood', 'home'],
-      reviews: [
-        {
-          id: 'string',
-          reviewerUserName: 'Mikhail',
-          message: 'I cooked it once',
-          rank: 66
-        }
-      ],
-      personalRank: 89
-    },
-    {
-      id: 'id1',
-      image: 'geen',
-      name: 'pizza Mozarella',
-      shortDescription: 'very nice pizza',
-      tags: ['fastfood', 'home'],
-      reviews: [
-        {
-          id: 'string',
-          reviewerUserName: 'Mikhail',
-          message: 'I cooked it once',
-          rank: 66
-        }
-      ],
-      personalRank: 89
-    },
-    {
-      id: 'id1',
-      image: 'geen',
-      name: 'pizza Mozarella',
-      shortDescription: 'very nice pizza',
-      tags: ['fastfood', 'home'],
-      reviews: [
-        {
-          id: 'string',
-          reviewerUserName: 'Mikhail',
-          message: 'I cooked it once',
-          rank: 66
-        }
-      ],
-      personalRank: 89
-    }
-  ];
+  constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.route.data.subscribe((data: {recipes: RecipeDb[]}) => {
+      this.recipes = data.recipes;
+    });
+  }
 }
