@@ -1,0 +1,60 @@
+@import '../../../../../styles/variables';
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: max-content max-content max-content max-content max-content;
+  grid-template-areas:
+    'name image tag'
+    'short-info image tag'
+    'ingredients ingredients ingredients'
+    'recipe recipe recipe'
+    'reviews reviews reviews'
+    'edit . save';
+  .name {
+    grid-area: name;
+    background-color: brown;
+  }
+  .image {
+    grid-area: image;
+    background-color: brown;
+  }
+  .tag {
+    grid-area: tag;
+    background-color: red;
+  }
+  .short-info {
+    grid-area: short-info;
+    background-color: blue;
+  }
+  .ingredients {
+    grid-area: ingredients;
+    background-color: violet;
+  }
+  .recipe {
+    grid-area: recipe;
+    background-color: green($color: #000000);
+  }
+  .reviews {
+    grid-area: reviews;
+    background-color: yellow;
+  }
+  .personal-rank {
+    grid-area: personal-rank;
+    background-color: gray;
+  }
+  .save {
+    grid-area: save;
+    background-color: gray;
+  }
+  .edit {
+    grid-area: edit;
+    background-color: gray;
+  }
+
+  > *:hover {
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px #ccc;
+  }
+}
