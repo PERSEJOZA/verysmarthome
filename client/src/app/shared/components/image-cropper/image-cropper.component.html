@@ -1,0 +1,29 @@
+<input type="file" *ngIf="form.enabled" (change)="fileChangeEvent($event)" />
+<div class="container" *ngIf="imageChangedEvent">
+  <div class="content">
+    <div>
+      Original image
+      <app-spinner *ngIf="spinner"></app-spinner>
+      <image-cropper
+        [imageChangedEvent]="imageChangedEvent"
+        [maintainAspectRatio]="true"
+        [onlyScaleDown]="true"
+        [aspectRatio]="10 / 3"
+        [resizeToWidth]="300"
+        [alignImage]="center"
+        format="png"
+        outputType="base64"
+        (imageCropped)="imageCropped($event)"
+        (imageLoaded)="imageLoaded()"
+        (cropperReady)="cropperReady()"
+        (loadImageFailed)="loadImageFailed()"
+      ></image-cropper>
+    </div>
+
+    <div>
+      Result
+      <img *ngIf="croppedImage" [src]="croppedImage" />
+    </div>
+    <button (click)="closeModal()">Close</button>
+  </div>
+</div>
