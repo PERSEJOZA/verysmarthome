@@ -2,8 +2,8 @@ import {Component, Input} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {ImageCroppedEvent} from 'ngx-image-cropper';
 
-import {ErrorMessageService} from '../../services/error-message.service';
-import {SpinnerService} from '../../services/spinner.service';
+import {ErrorMessageService} from '../../../services/error-message.service';
+import {SpinnerService} from '../../../services/spinner.service';
 
 @Component({
   selector: 'app-image-cropper',

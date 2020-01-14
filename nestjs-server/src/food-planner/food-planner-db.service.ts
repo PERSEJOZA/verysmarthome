@@ -11,11 +11,11 @@ export class FoodPlannerDbService {
 
   constructor(private couchConnection: CouchDBConnectorService) {}
 
-  public async addRecipe(document: Recipe): Promise<DocumentInsertResponse> {
+  public async addRecipe(document: Recipe, photo): Promise<DocumentInsertResponse> {
     this.logger.debug('<' + this.addRecipe.name);
 
-    const documentInsertResponse: DocumentInsertResponse = await this.couchConnection.recipeDb
-      .insert(document)
+    const documentInsertResponse: DocumentInsertResponse = await this.couchConnection.recipeDb.multipart
+      .insert(document, [{name: 'image.png', data: photo, content_type: 'image/png'}])
       .catch((error: Error) => {
         this.logger.debug('=' + this.addRecipe.name + 'ERROR!!!', JSON.stringify(error));
         throw error;
@@ -25,11 +25,11 @@ export class FoodPlannerDbService {
     return documentInsertResponse;
   }
 
-  public async updateRecipe(document: RecipeDb): Promise<DocumentInsertResponse> {
+  public async updateRecipe(document: RecipeDb, photo?: any): Promise<DocumentInsertResponse> {
     this.logger.debug('<' + this.updateRecipe.name);
 
-    const documentInsertResponse: DocumentInsertResponse = await this.couchConnection.recipeDb
-      .insert(document)
+    const documentInsertResponse: DocumentInsertResponse = await this.couchConnection.recipeDb.multipart
+      .insert(document, [{name: 'ímage.png', data: photo, content_type: 'ímage/png'}])
       .catch((error: Error) => {
         this.logger.debug('=' + this.updateRecipe.name + 'ERROR!!!', JSON.stringify(error));
         throw error;

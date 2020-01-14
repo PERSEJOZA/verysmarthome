@@ -7,29 +7,23 @@ import {AuthenticationGuard} from './guards/authentication.guard';
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent,
+    component: DashboardComponent
   },
   {
     path: 'login',
-    loadChildren: () =>
-      import('../authentication/authentication.module').then(
-        mod => mod.AuthenticationModule,
-      ),
+    loadChildren: () => import('../authentication/authentication.module').then(mod => mod.AuthenticationModule)
   },
   {
     path: 'food-planner',
-    loadChildren: () =>
-      import('../food-planner/food-planner.module').then(
-        mod => mod.FoodPlannerModule,
-      ),
-    canActivate: [AuthenticationGuard],
+    loadChildren: () => import('../food-planner/food-planner.module').then(mod => mod.FoodPlannerModule),
+    canActivate: [AuthenticationGuard]
   },
-  {path: '**', redirectTo: ''},
+  {path: '**', redirectTo: ''}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AuthenticationGuard],
+  providers: [AuthenticationGuard]
 })
 export class AppRoutingModule {}

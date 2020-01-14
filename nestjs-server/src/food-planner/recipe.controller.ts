@@ -14,7 +14,7 @@ export class RecipeController {
 
   @Post('')
   async addRecipe(@Body() recipe: Recipe): Promise<DocumentInsertResponse> {
-    return await this.foodPlannerDbService.addRecipe(recipe).catch((error: Error) => {
+    return await this.foodPlannerDbService.addRecipe(recipe, recipe.image).catch((error: Error) => {
       throw new BadRequestException(this.addRecipe.name + 'ERROR', JSON.stringify(error));
     });
   }

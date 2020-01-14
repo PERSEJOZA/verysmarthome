@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
+import {environment} from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConfigurationService {
-  public nestJSServerUrl = 'http://localhost:3000/api';
+  public nestJSServerUrl = environment.nestJSServerUrl;
 }

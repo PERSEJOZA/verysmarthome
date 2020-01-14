@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  nestJSServerUrl: 'http://localhost:3000/api'
 };
 
 /*

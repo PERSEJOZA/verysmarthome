@@ -1,9 +1,13 @@
+import {Ingredient} from './ingredient.model';
+import {RecipeStep} from './recipe-step.model';
+
 export abstract class Recipe {
-  public id: string;
+  public name: string; // equal to id
   public image: string;
-  public name: string;
   public shortDescription: string;
-  public tags: [string];
-  public reviews: [string];
-  public personalRank: number;
+  public timeToCook: number;
+  public minNumberOfPeople: number;
+  public tags: string[];
+  public ingredients: Ingredient[];
+  public steps: RecipeStep[];
 }

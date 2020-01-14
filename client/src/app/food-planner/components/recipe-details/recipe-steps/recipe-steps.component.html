@@ -1,0 +1,16 @@
+<div [formGroup]="recipeForm">
+  RECIPE
+  <div formArrayName="steps">
+    <button (click)="addRecipeStep()" *ngIf="recipeForm.enabled">Add step</button>
+    <div [formGroupName]="i" *ngFor="let step of recipeForm.controls.steps.controls; let i = index">
+      <label>
+        name:
+        <input matInput type="text" formControlName="name" />
+      </label>
+      <label>
+        message:
+        <input matInput type="text" formControlName="message" />
+      </label>
+    </div>
+  </div>
+</div>

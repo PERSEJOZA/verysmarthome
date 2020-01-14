@@ -1,9 +1,8 @@
-import {Subscription} from 'rxjs';
-import {UserInfoService} from 'src/app/shared/services/user-info.service';
-
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {Subscription} from 'rxjs';
+import {UserInfoService} from 'src/app/services/user-info.service';
 
 import {AuthenticationService} from '../../services/authentication.service';
 
@@ -35,10 +34,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public login(): void {
     this.loginSubscription = this.authenticationService
-      .login(
-        this.loginFrom.value.username,
-        this.loginFrom.value.currentPassword
-      )
+      .login(this.loginFrom.value.username, this.loginFrom.value.currentPassword)
       .subscribe((response: any) => {
         delete localStorage.token;
         localStorage.token = response.token;
@@ -51,10 +47,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public register(): void {
     this.registerSubscription = this.authenticationService
-      .register(
-        this.loginFrom.value.username,
-        this.loginFrom.value.currentPassword
-      )
+      .register(this.loginFrom.value.username, this.loginFrom.value.currentPassword)
       .subscribe((response: any) => {
         delete localStorage.token;
         localStorage.token = response.token;

@@ -1,41 +1,40 @@
-<div class="container">
-  <div class="name">{{ recipe.name }}</div>
-  <div class="image">image</div>
-  <div class="short-info"></div>
-  <div class="ingredients"></div>
-  <div class="recipe">RECIPE</div>
-  <div class="reviews"></div>
-  <div class="edit">Edit</div>
-  <div class="save">Save</div>
-</div>
-
-<div class="example-container">
-  <form class="example-container" [formGroup]="options">
-    <mat-checkbox formControlName="hideRequired">Hide required marker</mat-checkbox>
-    <div>
-      <label>Float label: </label>
-      <mat-radio-group formControlName="floatLabel">
-        <mat-radio-button value="auto">Auto</mat-radio-button>
-        <mat-radio-button value="always">Always</mat-radio-button>
-        <mat-radio-button value="never">Never</mat-radio-button>
-      </mat-radio-group>
+<form class="example-container" [formGroup]="editModeFormGroup">
+  <mat-slide-toggle formControlName="enabled" (click)="toggleEditMode()">Edit mode!</mat-slide-toggle>
+</form>
+<form [formGroup]="recipeForm" (ngSubmit)="saveRecipe()">
+  <div class="container">
+    <mat-form-field class="name">
+      <input matInput type="text" formControlName="name" required />
+    </mat-form-field>
+    <div class="image">
+      <img *ngIf="recipeForm.value.image" [src]="recipeForm.value.image" />
+      <app-image-cropper [form]="recipeForm"></app-image-cropper>
     </div>
-  </form>
+    <div class="short-info">
+      <mat-form-field>
+        maxNumberOfPeople:
+        <input matInput type="number" formControlName="minNumberOfPeople" />
+      </mat-form-field>
+      <mat-form-field>
+        timeToCook:
+        <input matInput type="number" formControlName="timeToCook" />
+      </mat-form-field>
+    </div>
 
-  <mat-form-field [hideRequiredMarker]="options.value.hideRequired" [floatLabel]="options.value.floatLabel">
-    <input matInput placeholder="Simple placeholder" required />
-  </mat-form-field>
+    <app-recipe-ingredients class="ingredients" [recipeForm]="recipeForm" [recipeIngredient]="recipeIngredient">
+    </app-recipe-ingredients>
+    <app-recipe-steps class="recipe" [recipeForm]="recipeForm" [recipeStep]="recipeStep"></app-recipe-steps>
+    <app-recipe-tags class="tag" [recipeForm]="recipeForm" [recipeTag]="recipeTag"></app-recipe-tags>
 
-  <mat-form-field [floatLabel]="options.value.floatLabel">
-    <mat-label>Both a label and a placeholder</mat-label>
-    <input matInput placeholder="Simple placeholder" />
-  </mat-form-field>
+    <div class="reviews"></div>
+    <button class="save" type="submit" [disabled]="!recipeForm.valid">Save</button>
+  </div>
+</form>
 
-  <mat-form-field [hideRequiredMarker]="options.value.hideRequired" [floatLabel]="options.value.floatLabel">
-    <mat-select required>
-      <mat-option>-- None --</mat-option>
-      <mat-option value="option">Option</mat-option>
-    </mat-select>
-    <mat-label><mat-icon>favorite</mat-icon> <b> Fancy</b> <i> label</i></mat-label>
-  </mat-form-field>
+<div>
+  {{ recipe | json }}
 </div>
+<div>
+  {{ recipeForm.value | json }}
+</div>
+{{ editModeFormGroup.value | json }}

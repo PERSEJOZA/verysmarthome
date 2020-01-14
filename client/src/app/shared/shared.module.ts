@@ -1,27 +1,15 @@
 import {CommonModule} from '@angular/common';
-import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ImageCropperModule} from 'ngx-image-cropper';
 
-import {SpinnerComponent} from '../components/spinner/spinner.component';
 import {HeaderComponent} from './components/header/header.component';
-import {httpRequestErrorHandlerProvider} from './services/interceptors/http-request-error-handler.provider';
-import {loaderSpinnerProvider} from './services/interceptors/loader-spinner.provider';
+import {ImageCropperComponent} from './components/image-cropper/image-cropper.component';
+import {SpinnerComponent} from './components/spinner/spinner.component';
 
 @NgModule({
-  declarations: [HeaderComponent, SpinnerComponent],
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, MatFormFieldModule, BrowserAnimationsModule],
-  providers: [loaderSpinnerProvider, httpRequestErrorHandlerProvider],
-  exports: [
-    CommonModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    HeaderComponent,
-    SpinnerComponent,
-    BrowserAnimationsModule,
-    MatFormFieldModule
-  ]
+  declarations: [HeaderComponent, ImageCropperComponent, SpinnerComponent],
+  imports: [ImageCropperModule, CommonModule, ReactiveFormsModule],
+  exports: [HeaderComponent, ImageCropperComponent, SpinnerComponent, CommonModule, ReactiveFormsModule]
 })
 export class SharedModule {}
