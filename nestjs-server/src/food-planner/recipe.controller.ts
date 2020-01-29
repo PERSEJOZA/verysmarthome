@@ -8,7 +8,7 @@ import {Recipe} from './models/recipe.model';
 
 @ApiUseTags('recipes')
 @ApiBearerAuth()
-@Controller('api/recipes')
+@Controller('recipes')
 export class RecipeController {
   constructor(private foodPlannerDbService: FoodPlannerDbService) {}
 

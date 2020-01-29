@@ -1,24 +1,27 @@
-import {Injectable, Logger} from '@nestjs/common';
+import {Injectable} from '@nestjs/common';
 import * as Nano from 'nano';
 
 import {ConfigService} from '../../config/config/config.service';
+import {LoggerService} from '../../logger/logger/logger.service';
 
 @Injectable()
 export class CouchDBConnectorService {
-  private logger = new Logger(this.constructor.name);
-  private nano: Nano.ServerScope = Nano(
-    this.configService.foodPlannerDbConfig.protocol +
-      '://' +
-      this.configService.foodPlannerDbConfig.username +
-      ':' +
-      this.configService.foodPlannerDbConfig.password +
-      '@' +
-      this.configService.foodPlannerDbConfig.url +
-      ':' +
-      this.configService.foodPlannerDbConfig.port
-  );
+  private nano: Nano.ServerScope;
 
-  constructor(private configService: ConfigService) {}
+  constructor(private configService: ConfigService, private readonly logger: LoggerService) {
+    this.logger.setContext(this.constructor.name);
+    this.nano = Nano(
+      this.configService.foodPlannerDbConfig.protocol +
+        '://' +
+        this.configService.foodPlannerDbConfig.username +
+        ':' +
+        this.configService.foodPlannerDbConfig.password +
+        '@' +
+        this.configService.foodPlannerDbConfig.url +
+        ':' +
+        this.configService.foodPlannerDbConfig.port
+    );
+  }
 
   public recipeDb: Nano.DocumentScope<any>;
 
