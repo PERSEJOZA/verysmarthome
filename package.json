@@ -1,8 +1,18 @@
 {
-  "name": "smarthome",
+  "name": "smartHome",
   "version": "1.0.0",
   "description": "main environment",
+  "author": "PERSEJOLZA",
+  "license": "ISC",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PERSEJOZA/smarthome.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PERSEJOZA/smarthome/issues"
+  },
+  "homepage": "https://github.com/PERSEJOZA/smarthome#readme",
   "scripts": {
     "start:dev": "docker-compose up -d",
     "prettierRepository": "prettier --write \"**/*.{ts,yaml,html,md,scss,json}\""
@@ -26,20 +36,10 @@
       "git add"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/PERSEJOZA/smarthome.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/PERSEJOZA/smarthome/issues"
-  },
-  "homepage": "https://github.com/PERSEJOZA/smarthome#readme",
   "dependencies": {},
   "devDependencies": {
-    "husky": "^3.0.5",
-    "lint-staged": "^9.2.5",
+    "husky": "3.0.5",
+    "lint-staged": "9.2.5",
     "prettier": "1.18.2"
   }
 }
