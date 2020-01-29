@@ -1,3 +1,4 @@
+import {ValidationPipe} from '@nestjs/common';
 import {NestFactory} from '@nestjs/core';
 import {DocumentBuilder, SwaggerDocument, SwaggerModule} from '@nestjs/swagger';
 
@@ -10,6 +11,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api/v1');
   app.useLogger(app.get(LoggerService));
+  app.useGlobalPipes(new ValidationPipe());
+  app.enableCors();
 
   const foodPlannerOptions = new DocumentBuilder()
     .setTitle('Food-planner')
@@ -24,7 +27,6 @@ async function bootstrap() {
   });
   SwaggerModule.setup('food-planner/swagger', app, document);
 
-  app.enableCors();
   await app.listen(3000);
 }
 bootstrap();
