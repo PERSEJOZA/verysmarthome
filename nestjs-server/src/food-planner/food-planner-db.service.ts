@@ -1,21 +1,22 @@
-import {Injectable, Logger} from '@nestjs/common';
+import {Injectable} from '@nestjs/common';
 import {DocumentDestroyResponse, DocumentInsertResponse, MangoResponse} from 'nano';
 
 import {CouchDBConnectorService} from '../db/couch-db-connector/couch-db-connector.service';
+import {LoggerService} from '../logger/logger/logger.service';
 import {RecipeDb} from './models/recipe-db.model';
 import {Recipe} from './models/recipe.model';
 
 @Injectable()
 export class FoodPlannerDbService {
-  private logger: Logger = new Logger(this.constructor.name);
+  constructor(private couchConnection: CouchDBConnectorService, private readonly logger: LoggerService) {
+    this.logger.setContext(this.constructor.name);
+  }
 
-  constructor(private couchConnection: CouchDBConnectorService) {}
-
-  public async addRecipe(document: Recipe, photo): Promise<DocumentInsertResponse> {
+  public async addRecipe(document: Recipe, photo: any): Promise<DocumentInsertResponse> {
     this.logger.debug('<' + this.addRecipe.name);
 
-    const documentInsertResponse: DocumentInsertResponse = await this.couchConnection.recipeDb.multipart
-      .insert(document, [{name: 'image.png', data: photo, content_type: 'image/png'}])
+    const documentInsertResponse: DocumentInsertResponse = await this.couchConnection.recipeDb
+      .insert(document)
       .catch((error: Error) => {
         this.logger.debug('=' + this.addRecipe.name + 'ERROR!!!', JSON.stringify(error));
         throw error;

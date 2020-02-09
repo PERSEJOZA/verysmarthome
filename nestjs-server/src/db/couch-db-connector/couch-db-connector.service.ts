@@ -7,6 +7,7 @@ import {LoggerService} from '../../logger/logger/logger.service';
 @Injectable()
 export class CouchDBConnectorService {
   private nano: Nano.ServerScope;
+  public recipeDb: Nano.DocumentScope<any>;
 
   constructor(private configService: ConfigService, private readonly logger: LoggerService) {
     this.logger.setContext(this.constructor.name);
@@ -22,8 +23,6 @@ export class CouchDBConnectorService {
         this.configService.foodPlannerDbConfig.port
     );
   }
-
-  public recipeDb: Nano.DocumentScope<any>;
 
   public async connectToRecipeDb() {
     this.logger.debug('<' + this.connectToRecipeDb.name);
