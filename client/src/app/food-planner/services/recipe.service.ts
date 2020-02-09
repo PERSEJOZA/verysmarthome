@@ -1,8 +1,9 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {ConfigurationService} from 'src/app/services/configuration.service';
 
+import {ConfigurationService} from '../../services/configuration.service';
+import {DbSuccessResponse} from '../models/dbSuccessResponse.model';
 import {RecipeDb} from '../models/recipe-db.model';
 import {Recipe} from '../models/recipe.model';
 
