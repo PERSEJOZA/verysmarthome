@@ -1,13 +1,11 @@
 import {NgModule} from '@angular/core';
-import {
-  MatCheckboxModule,
-  MatFormFieldModule,
-  MatIconModule,
-  MatInputModule,
-  MatRadioModule,
-  MatSelectModule,
-  MatSlideToggleModule
-} from '@angular/material';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import {SharedModule} from '../shared/shared.module';
 import {BuyFoodComponent} from './components/buy-food/buy-food.component';
