@@ -2,7 +2,7 @@
   <div formArrayName="tags">
     <button (click)="addTag()" *ngIf="recipeForm.enabled">Add tag</button>
     Tags
-    <div [formGroupName]="i" *ngFor="let tag of recipeForm.controls.tags.controls; let i = index">
+    <div [formGroupName]="i" *ngFor="let tag of recipeForm.controls.tags; let i = index">
       <label>
         <input matInput type="text" formControlName="name" />
       </label>

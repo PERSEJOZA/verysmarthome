@@ -11,7 +11,7 @@ import {SpinnerService} from '../../../services/spinner.service';
   styleUrls: ['./image-cropper.component.scss']
 })
 export class ImageCropperComponent {
-  public constructor(private spinnerService: SpinnerService, private errorService: ErrorMessageService) {}
+  public constructor(public spinnerService: SpinnerService, private errorService: ErrorMessageService) {}
   @Input() public form: FormGroup;
   public imageChangedEvent: Event;
   public croppedImage: string;

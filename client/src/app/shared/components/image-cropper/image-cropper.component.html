@@ -3,14 +3,14 @@
   <div class="content">
     <div>
       Original image
-      <app-spinner *ngIf="spinner"></app-spinner>
+      <app-spinner *ngIf="spinnerService.isLoading"></app-spinner>
       <image-cropper
         [imageChangedEvent]="imageChangedEvent"
         [maintainAspectRatio]="true"
         [onlyScaleDown]="true"
         [aspectRatio]="10 / 3"
         [resizeToWidth]="300"
-        [alignImage]="center"
+        [alignImage]="'center'"
         format="png"
         outputType="base64"
         (imageCropped)="imageCropped($event)"

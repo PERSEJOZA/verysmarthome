@@ -6,10 +6,7 @@
     <div>mg</div>
     <div>ml</div>
     <div>image</div>
-    <ng-container
-      [formGroupName]="i"
-      *ngFor="let ingredient of recipeForm.controls.ingredients.controls; let i = index"
-    >
+    <ng-container [formGroupName]="i" *ngFor="let ingredient of recipeForm.controls.ingredients; let i = index">
       <mat-form-field>
         <input matInput type="text" formControlName="name" />
       </mat-form-field>
