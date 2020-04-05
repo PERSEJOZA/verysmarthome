@@ -33,6 +33,7 @@ export class CouchDBConnectorService {
       })
       .catch((error: Error) => {
         this.logger.error('=' + this.connectToRecipeDb.name + 'creating a new db', JSON.stringify(error));
+        // TODO: catch error here.
         this.nano.db.create(this.configService.foodPlannerDbConfig.dbRecipeName);
         this.logger.debug('=' + this.connectToRecipeDb.name + 'a new database created');
       });

@@ -1,10 +1,10 @@
-import {ApiModelProperty, ApiModelPropertyOptional} from '@nestjs/swagger';
+import {ApiProperty, ApiPropertyOptional} from '@nestjs/swagger';
 
 export class RecipeStep {
-  @ApiModelProperty({type: String})
+  @ApiProperty({type: String})
   name: string;
-  @ApiModelPropertyOptional({type: String})
+  @ApiPropertyOptional({type: String})
   message?: string;
-  @ApiModelPropertyOptional({type: String})
+  @ApiPropertyOptional({type: String})
   image?: any;
 }

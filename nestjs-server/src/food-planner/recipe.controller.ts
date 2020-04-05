@@ -1,12 +1,12 @@
 import {BadRequestException, Body, Controller, Delete, Get, NotFoundException, Param, Post, Put} from '@nestjs/common';
-import {ApiBearerAuth, ApiUseTags} from '@nestjs/swagger';
+import {ApiBearerAuth, ApiTags} from '@nestjs/swagger';
 import {DocumentDestroyResponse, DocumentInsertResponse} from 'nano';
 
 import {FoodPlannerDbService} from './food-planner-db.service';
 import {RecipeDb} from './models/recipe-db.model';
 import {Recipe} from './models/recipe.model';
 
-@ApiUseTags('recipes')
+@ApiTags('recipes')
 @ApiBearerAuth()
 @Controller('recipes')
 export class RecipeController {

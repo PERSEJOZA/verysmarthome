@@ -1,12 +1,12 @@
-import {ApiModelProperty} from '@nestjs/swagger';
+import {ApiProperty} from '@nestjs/swagger';
 
 import {Recipe} from './recipe.model';
 
 export class RecipeDb extends Recipe {
-  @ApiModelProperty()
+  @ApiProperty()
   // tslint:disable-next-line: variable-name
   public _id: string;
-  @ApiModelProperty()
+  @ApiProperty()
   // tslint:disable-next-line: variable-name
   public _rev: string;
 }

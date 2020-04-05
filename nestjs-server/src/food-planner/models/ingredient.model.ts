@@ -1,12 +1,12 @@
-import {ApiModelProperty, ApiModelPropertyOptional} from '@nestjs/swagger';
+import {ApiProperty, ApiPropertyOptional} from '@nestjs/swagger';
 
 export class Ingredient {
-  @ApiModelProperty({type: String})
+  @ApiProperty({type: String})
   name: string;
-  @ApiModelPropertyOptional({type: Number})
+  @ApiPropertyOptional({type: Number})
   mg?: number;
-  @ApiModelPropertyOptional({type: Number})
+  @ApiPropertyOptional({type: Number})
   ml?: number;
-  @ApiModelPropertyOptional()
+  @ApiPropertyOptional()
   pieces?: any;
 }

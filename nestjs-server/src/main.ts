@@ -1,6 +1,6 @@
 import {ValidationPipe} from '@nestjs/common';
 import {NestFactory} from '@nestjs/core';
-import {DocumentBuilder, SwaggerDocument, SwaggerModule} from '@nestjs/swagger';
+import {DocumentBuilder, OpenAPIObject, SwaggerModule} from '@nestjs/swagger';
 
 import {AppModule} from './app.module';
 import {AuthenticationModule} from './authentication/authentication.module';
@@ -22,7 +22,7 @@ async function bootstrap() {
     .setVersion('1.0')
     .addTag('recipe, food, planner')
     .build();
-  const document: SwaggerDocument = SwaggerModule.createDocument(app, foodPlannerOptions, {
+  const document: OpenAPIObject = SwaggerModule.createDocument(app, foodPlannerOptions, {
     include: [FoodPlannerModule, AuthenticationModule]
   });
   SwaggerModule.setup('food-planner/swagger', app, document);
